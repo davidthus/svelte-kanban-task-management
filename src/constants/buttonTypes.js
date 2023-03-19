@@ -1,0 +1,7 @@
+export const BUTTONTYPES = {
+	PRIMARYL: 1,
+	PRIMARYS: 2,
+	SECONDARY: 3,
+	DESTRUCTIVE: 4,
+	ADDTASK: 5
+};
