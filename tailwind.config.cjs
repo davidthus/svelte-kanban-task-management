@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -13,9 +15,6 @@ module.exports = {
 			'light-aside-bg': 'white',
 			'light-task-bg': 'white',
 			'light-scroll-bg': 'white',
-			// dark-new-column:
-			//   "linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%)",
-			// dark-task-box-shadow: "filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
 
 			// sub task checkbox
 			'dark-sub-task-checkbox-bg': '#20212C',
@@ -78,12 +77,26 @@ module.exports = {
 			red: '#EA5555',
 			'normal-theme': 'black',
 			'edit-drop-down': '#20212C'
-
-			// light-new-column:
-			//   "linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%)",
-			// light-task-box-shadow: "box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.101545)",
 		},
 		extend: {}
 	},
-	plugins: []
+	plugins: [
+		plugin(function ({ addUtilities }) {
+			addUtilities({
+				'.light-new-column': {
+					background: 'linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%)'
+				},
+				'.light-task-box-shadow': {
+					'box-shadow': '0px 4px 6px rgba(54, 78, 126, 0.101545)'
+				},
+				'.dark-new-column': {
+					background:
+						'linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%)'
+				},
+				'.dark-task-box-shadow': {
+					filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))'
+				}
+			});
+		})
+	]
 };
