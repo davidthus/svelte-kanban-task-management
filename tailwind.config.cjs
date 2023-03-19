@@ -48,9 +48,9 @@ module.exports = {
 			darkButtonSecondaryBg: 'white',
 			darkButtonSecondaryText: '#635FC7',
 			darkButtonSecondaryHover: 'rgba(255, 255, 255, 0.6)',
-			darkDelteButtonBg: '#EA5555',
-			darkDeleteButtonText: 'white',
-			darkDeleteButtonHover: '#FF9898',
+			darkButtonDeleteBg: '#EA5555',
+			darkButtonDeleteText: 'white',
+			darkButtonDeleteHover: '#FF9898',
 			darkInactiveBoardTabHover: 'white',
 			lightButtonPrimaryBg: '#635FC7',
 			lightButtonPrimaryHover: '#A8A4FF',
@@ -58,9 +58,9 @@ module.exports = {
 			lightButtonSecondaryBg: 'rgba(99, 95, 199, 0.1)',
 			lightButtonSecondaryText: '#635FC7',
 			lightButtonSecondaryHover: 'rgba(99, 95, 199, 0.25)',
-			lightDelteButtonBg: '#EA5555',
-			lightDeleteButtonText: 'white',
-			lightDeleteButtonHover: '#FF9898',
+			lightButtonDeleteBg: '#EA5555',
+			lightButtonDeleteText: 'white',
+			lightButtonDeleteHover: '#FF9898',
 			lightInactiveBoardTabHover: '#97979730',
 			// text
 
@@ -82,18 +82,57 @@ module.exports = {
 	plugins: [
 		plugin(function ({ addUtilities }) {
 			addUtilities({
-				'.light-new-column': {
+				'.lightNewColumn': {
 					background: 'linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%)'
 				},
-				'.light-task-box-shadow': {
+				'.lightTaskBoxShadow': {
 					'box-shadow': '0px 4px 6px rgba(54, 78, 126, 0.101545)'
 				},
-				'.dark-new-column': {
+				'.darkNewColumn': {
 					background:
 						'linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%)'
 				},
-				'.dark-task-box-shadow': {
+				'.darkTaskBoxShadow': {
 					filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))'
+				},
+				'.addTaskXPadding': {
+					'padding-inline': 'clamp(1.5rem, 3vw, 2.5rem)'
+				},
+				'.headingxl': {
+					'font-weight': 'bold',
+					'font-size': '24px',
+					'line-height': '30px'
+				},
+				'.headingl': {
+					'font-weight': 'bold',
+					'font-size': '18px',
+					'line-height': '23px'
+				},
+				'.headingm': {
+					'font-weight': 'bold',
+					'font-size': '15px',
+					'line-height': '19px'
+				},
+				'.headings': {
+					'font-weight': 'bold',
+					'font-size': '12px',
+					'line-height': '15px',
+					'letter-spacing': '2.4px'
+				},
+				'.bodyl': {
+					'font-weight': 500,
+					'font-size': '13px',
+					'line-height': '23px'
+				},
+				'.bodym': {
+					'font-weight': 'bold',
+					'font-size': '12px',
+					'line-height': '15px'
+				},
+				'.buttonstext': {
+					'font-weight': 'bold',
+					'font-size': '13px',
+					'line-height': '23px'
 				}
 			});
 		})
