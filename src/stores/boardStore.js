@@ -1,17 +1,8 @@
 import data from '$src/data/data.json';
+import { createLocalStorage, persist } from '@macfja/svelte-persistent-store';
 import { writable } from 'svelte/store';
-export const boards = writable([]);
 
-export const loadTodos = () => {
-	const loadedBoards = JSON.parse(localStorage.getItem('boards')) || data.boards;
-
-	boards.set(loadedBoards);
-};
-loadTodos();
-
-boards.subscribe((value) => {
-	localStorage.setItem('boards', value);
-});
+export const boards = persist(writable(data.boards), createLocalStorage(), 'boards');
 
 export function addBoard(boardName) {
 	boards.update((prev) => [...prev, { boardName, columns: [] }]);
