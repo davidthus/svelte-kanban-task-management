@@ -23,7 +23,7 @@ export function addTask(newTask, boardIndex, columnIndex) {
 	boards.update((prev) =>
 		prev.map((board, currentBoardIndex) => {
 			if (currentBoardIndex === boardIndex) {
-				return board.columns.map((column, currentColumnIndex) => {
+				board.columns = board.columns.map((column, currentColumnIndex) => {
 					if (currentColumnIndex === columnIndex) {
 						column.tasks = [...column.tasks, newTask];
 					}
@@ -52,8 +52,9 @@ export function updateTask(updatedTask, boardIndex, columnIndex, oldColumnIndex,
 	boards.update((prev) =>
 		prev.map((board, currentBoardIndex) => {
 			let taskStatusChanged = false;
+
 			if (currentBoardIndex === boardIndex) {
-				return board.columns.map((column, currentColumnIndex) => {
+				board.columns = board.columns.map((column, currentColumnIndex) => {
 					if (currentColumnIndex === oldColumnIndex && currentColumnIndex === columnIndex) {
 						column.tasks[taskIndex] = updatedTask;
 					} else if (currentColumnIndex === columnIndex) {
@@ -66,7 +67,7 @@ export function updateTask(updatedTask, boardIndex, columnIndex, oldColumnIndex,
 			}
 
 			if (taskStatusChanged) {
-				board.columns[oldColumnIndex].splice(taskIndex, 1);
+				board.columns[oldColumnIndex].tasks.splice(taskIndex, 1);
 			}
 
 			return board;
@@ -82,13 +83,77 @@ export function deleteTask(boardIndex, columnIndex, taskIndex) {
 	boards.update((prev) =>
 		prev.map((board, currentBoardIndex) => {
 			if (currentBoardIndex === boardIndex) {
-				return board.columns.map((column, currentColumnIndex) => {
+				board.columns = board.columns.map((column, currentColumnIndex) => {
 					if (currentColumnIndex === columnIndex) {
-						column.tasks.filter((task, currentTaskIndex) => currentTaskIndex !== taskIndex);
+						column.tasks = column.tasks.filter(
+							(task, currentTaskIndex) => currentTaskIndex !== taskIndex
+						);
 					}
 					return column;
 				});
 			}
+			return board;
+		})
+	);
+}
+
+export function changeTaskStatus(task, boardIndex, columnIndex, oldColumnIndex, taskIndex) {
+	boards.update((prev) =>
+		prev.map((board, currentBoardIndex) => {
+			let taskStatusChanged = false;
+
+			if (currentBoardIndex === boardIndex) {
+				board.columns = board.columns.map((column, currentColumnIndex) => {
+					if (currentColumnIndex === oldColumnIndex && currentColumnIndex === columnIndex) {
+						column.tasks[taskIndex] = task;
+					} else if (currentColumnIndex === columnIndex) {
+						column.tasks = [...column.tasks, task];
+						taskStatusChanged = true;
+					}
+
+					return column;
+				});
+			}
+
+			if (taskStatusChanged) {
+				board.columns[oldColumnIndex].tasks.splice(taskIndex, 1);
+			}
+
+			return board;
+		})
+	);
+}
+
+export function toggleSubtask(
+	subtaskIndex,
+	taskIndex,
+	boardIndex,
+	columnIndex,
+	currentSubtaskState
+) {
+	boards.update((prev) =>
+		prev.map((board, currentBoardIndex) => {
+			if (currentBoardIndex === boardIndex) {
+				board.columns = board.columns.map((column, currentColumnIndex) => {
+					if (currentColumnIndex === columnIndex) {
+						column.tasks = column.tasks.map((task, currentTaskIndex) => {
+							if (currentTaskIndex === taskIndex) {
+								task.subtasks = task.subtasks.map((subtask, currentSubtaskIndex) => {
+									if (currentSubtaskIndex === subtaskIndex) {
+										subtask.isCompleted = currentSubtaskState ? false : true;
+									}
+									return subtask;
+								});
+							}
+
+							return task;
+						});
+					}
+
+					return column;
+				});
+			}
+
 			return board;
 		})
 	);
