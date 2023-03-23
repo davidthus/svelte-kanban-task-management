@@ -71,9 +71,10 @@ module.exports = {
 
 			border: '#3E3F4E',
 			grey: '#828FA3',
-			blue: '#635FC7',
+			purple: '#635FC7',
 			lightBlue: '#A8A4FF',
 			red: '#EA5555',
+			white: "#FFFFFF",
 			normalTheme: 'black',
 			EditDropDown: '#20212C'
 		},

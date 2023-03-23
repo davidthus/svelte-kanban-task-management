@@ -1,6 +1,6 @@
-import data from '$src/data/data.json';
 import { createLocalStorage, persist } from '@macfja/svelte-persistent-store';
 import { writable } from 'svelte/store';
+import data from '../data/data.json';
 
 export const boards = persist(writable(data.boards), createLocalStorage(), 'boards');
 
