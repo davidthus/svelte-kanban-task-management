@@ -18,7 +18,7 @@ export const loadData = () => {
 loadData();
 
 data.subscribe((value) => {
-	localStorage.setItem('data', value);
+	localStorage.setItem('data', JSON.stringify(value));
 });
 
 export function toggleSidebar() {

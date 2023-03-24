@@ -15,7 +15,7 @@ export const firstBoard = derived(boards, ($_boards) =>
 );
 
 boards.subscribe((value) => {
-	localStorage.setItem('boards', value);
+	localStorage.setItem('boards', JSON.stringify(value));
 });
 
 export function addBoard(boardName) {
