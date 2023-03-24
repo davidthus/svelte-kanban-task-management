@@ -1,15 +1,24 @@
-import { createLocalStorage, persist } from '@macfja/svelte-persistent-store';
 import { writable } from 'svelte/store';
 import { themeTypes } from '../constants/themeTypes';
-// import { boards } from './boardStore';
+import { boards } from './boardStore';
 
 const initialState = {
 	sidebarOpen: true,
 	theme: themeTypes.LIGHTTHEME,
-	activeBoard: 'Platform Launch'
+	activeBoard: boards.subscribe((value) => value)[0].name || null
 };
+export const data = writable(initialState);
 
-export const data = persist(writable(initialState), createLocalStorage(), 'data');
+export const loadData = () => {
+	const loadedBoards = JSON.parse(localStorage.getItem('data')) || initialState;
+
+	data.set(loadedBoards);
+};
+loadData();
+
+data.subscribe((value) => {
+	localStorage.setItem('data', value);
+});
 
 export function toggleSidebar() {
 	data.update((prev) => ({ ...prev, sidebarOpen: prev.sidebarOpen ? true : false }));
