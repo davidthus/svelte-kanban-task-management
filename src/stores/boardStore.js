@@ -1,13 +1,18 @@
-import { writable } from 'svelte/store';
+import { derived, writable } from 'svelte/store';
 import data from '../data/data.json';
+
 export const boards = writable([]);
 
 export const loadBoards = () => {
 	const loadedBoards = JSON.parse(localStorage.getItem('boards')) || data.boards;
-
+	console.log(loadedBoards);
 	boards.set(loadedBoards);
 };
 loadBoards();
+
+export const firstBoard = derived(boards, ($_boards) =>
+	$_boards[0].name ? $_boards[0].name : null
+);
 
 boards.subscribe((value) => {
 	localStorage.setItem('boards', value);

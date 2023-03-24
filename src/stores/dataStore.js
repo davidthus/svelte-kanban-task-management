@@ -1,18 +1,19 @@
 import { writable } from 'svelte/store';
 import { themeTypes } from '../constants/themeTypes';
-import { boards } from './boardStore';
+import { firstBoard } from './boardStore';
 
 const initialState = {
 	sidebarOpen: true,
 	theme: themeTypes.LIGHTTHEME,
-	activeBoard: boards.subscribe((value) => value)[0].name || null
+	activeBoard: firstBoard
 };
+
 export const data = writable(initialState);
 
 export const loadData = () => {
-	const loadedBoards = JSON.parse(localStorage.getItem('data')) || initialState;
+	const loadedData = JSON.parse(localStorage.getItem('data')) || initialState;
 
-	data.set(loadedBoards);
+	data.set(loadedData);
 };
 loadData();
 
