@@ -8,9 +8,9 @@
 	data.subscribe((value) => {
 		console.log(value);
 		if (value.theme === themeTypes.LIGHTTHEME) {
-			document.documentElement.classList.add('dark');
-		} else {
 			document.documentElement.classList.remove('dark');
+		} else if (value.theme === themeTypes.DARKTHEME) {
+			document.documentElement.classList.add('dark');
 		}
 	});
 </script>
