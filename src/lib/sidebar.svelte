@@ -2,10 +2,17 @@
 	import { BoardIcon } from '../assets';
 	import { buttonStateTypes } from '../constants/buttonStateTypes';
 	import { boards } from '../stores/boardStore';
+	import { toggleTheme } from '../stores/dataStore';
 	import BoardTab from './boardTab.svelte';
+
+	function handleToggleTheme() {
+		toggleTheme();
+	}
 </script>
 
-<aside class="flex flex-col justify-between max-w-xs fixed left-0 bottom-0 h-[90vh]">
+<aside
+	class="flex flex-col justify-between max-w-xs fixed left-0 bottom-0 h-[90vh] bg-lightAsideBg dark:bg-darkAsideBg"
+>
 	<section class="flex flex-col gap-5 ">
 		<h3 class="headings text-grey pl-8">ALL BOARDS({$boards.length})</h3>
 		<menu class="flex flex-col">
@@ -16,7 +23,10 @@
 			{/if}
 		</menu>
 		<button class="flex gap-4 pl-8 py-4 items-center hover:cursor-pointer text-purple headingm"
-			><BoardIcon state={buttonStateTypes.HOVER} /> + Create New Board</button
+			><BoardIcon state={buttonStateTypes.HOVER} />+ Create New Board</button
 		>
+	</section>
+	<section>
+		<button on:click={handleToggleTheme}>Toggle Theme</button>
 	</section>
 </aside>

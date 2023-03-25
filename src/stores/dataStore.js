@@ -28,7 +28,7 @@ export function toggleSidebar() {
 export function toggleTheme() {
 	data.update((prev) => ({
 		...prev,
-		theme: themeTypes === 1 ? themeTypes.DARKTHEME : themeTypes.LIGHTTHEME
+		theme: prev.theme === 1 ? themeTypes.DARKTHEME : themeTypes.LIGHTTHEME
 	}));
 }
 

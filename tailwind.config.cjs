@@ -3,6 +3,7 @@ const plugin = require('tailwindcss/plugin');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
+	darkMode: 'class',
 	theme: {
 		colors: {
 			darkBodyBg: '#20212C',
@@ -74,7 +75,7 @@ module.exports = {
 			purple: '#635FC7',
 			lightBlue: '#A8A4FF',
 			red: '#EA5555',
-			white: "#FFFFFF",
+			white: '#FFFFFF',
 			normalTheme: 'black',
 			EditDropDown: '#20212C'
 		},
