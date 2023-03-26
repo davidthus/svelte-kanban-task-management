@@ -10,9 +10,13 @@ export const data = writable(initialState);
 
 export const loadData = () => {
 	const loadedData = JSON.parse(localStorage.getItem('data')) || initialState;
-	const firstBoard = JSON.parse(localStorage.getItem('boards'))[0].name || data.boards[0].name;
+	const activeBoard = JSON.parse(localStorage.getItem('boards'))[0].name || data.boards[0].name;
 
-	data.set({ ...loadedData, firstBoard });
+	if (loadedData?.activeBoard) {
+		data.set(loadedData);
+	} else {
+		data.set({ ...loadedData, activeBoard });
+	}
 };
 loadData();
 
