@@ -19,7 +19,7 @@
 			{/if}
 		</menu>
 		<button class="flex gap-4 pl-8 py-4 items-center hover:cursor-pointer text-purple headingm"
-			><BoardIcon state={buttonStateTypes.HOVER} />+ Create New Board</button
+			><BoardIcon buttonState={buttonStateTypes.HOVER} />+ Create New Board</button
 		>
 	</section>
 	<section>

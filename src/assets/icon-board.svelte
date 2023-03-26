@@ -1,10 +1,10 @@
 <script>
 	import { buttonStateTypes } from '../constants/buttonStateTypes';
-	export let state = buttonStateTypes.DEFAULT;
+	export let buttonState = buttonStateTypes.DEFAULT;
 
 	let color;
 
-	switch (state) {
+	$: switch (buttonState) {
 		case buttonStateTypes.DEFAULT:
 			color = '#828FA3';
 			break;
