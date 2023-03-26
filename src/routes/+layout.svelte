@@ -4,7 +4,7 @@
 	import { onDestroy } from 'svelte';
 	import '../app.css';
 	import { themeTypes } from '../constants/themeTypes';
-	import { data } from '../stores/dataStore';
+	import { data, toggleSidebar } from '../stores/dataStore';
 
 	const dataUnsubscribe = data.subscribe((value) => {
 		console.log(value);
@@ -18,5 +18,11 @@
 </script>
 
 <Navbar />
-<Sidebar />
+{#if $data.sidebarOpen}
+	<Sidebar />
+{:else}
+	<div>
+		<button on:click={toggleSidebar}>Show Sidebar</button>
+	</div>
+{/if}
 <slot />

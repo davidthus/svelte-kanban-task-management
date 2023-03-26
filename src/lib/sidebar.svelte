@@ -2,12 +2,8 @@
 	import { BoardIcon } from '../assets';
 	import { buttonStateTypes } from '../constants/buttonStateTypes';
 	import { boards } from '../stores/boardStore';
-	import { toggleTheme } from '../stores/dataStore';
+	import { toggleSidebar, toggleTheme } from '../stores/dataStore';
 	import BoardTab from './boardTab.svelte';
-
-	function handleToggleTheme() {
-		toggleTheme();
-	}
 </script>
 
 <aside
@@ -27,6 +23,7 @@
 		>
 	</section>
 	<section>
-		<button on:click={handleToggleTheme}>Toggle Theme</button>
+		<button on:click={toggleTheme}>Toggle Theme</button>
+		<button on:click={toggleSidebar}>Hide Sidebar</button>
 	</section>
 </aside>
