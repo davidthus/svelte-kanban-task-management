@@ -2,4 +2,4 @@
 	export let toggleTheme;
 </script>
 
-<button on:click={toggleTheme}>Toggle THeme</button>
+<button class="" on:click={toggleTheme}>Toggle Theme</button>
