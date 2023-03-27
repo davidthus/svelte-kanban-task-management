@@ -22,7 +22,7 @@
 	<Sidebar />
 {:else}
 	<div>
-		<button on:click={toggleSidebar}>Show Sidebar</button>
+		<button class="absolute left-0 bottom-8" on:click={toggleSidebar}>Show Sidebar</button>
 	</div>
 {/if}
 <slot />
