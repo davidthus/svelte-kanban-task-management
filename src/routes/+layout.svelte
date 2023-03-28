@@ -18,6 +18,7 @@
 	onDestroy(dataUnsubscribe);
 </script>
 
+<div class="w-screen h-screen z-[-1] fixed inset-0 bg-lightBodyBg dark:bg-darkBodyBg" />
 <Navbar />
 {#if $data.sidebarOpen}
 	<Sidebar />
