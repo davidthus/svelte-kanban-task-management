@@ -10,7 +10,7 @@
 </script>
 
 <aside
-	class="flex flex-col justify-between max-w-xs w-full fixed left-0 bottom-0 pt-4 pb-8 h-[90vh] bg-lightAsideBg dark:bg-darkAsideBg border-r border-lightBodyBg dark:border-border"
+	class="flex flex-col justify-between max-w-xs w-full fixed left-0 bottom-0 pt-4 pb-8 h-[90vh] bg-lightAsideBg dark:bg-darkAsideBg border-r border-lightBorder dark:border-darkBorder"
 >
 	<section class="flex flex-col gap-5 ">
 		<h3 class="headings text-grey pl-8">ALL BOARDS({$boards.length})</h3>

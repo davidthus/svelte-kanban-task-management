@@ -11,7 +11,7 @@ module.exports = {
 			darkNavbarBg: '#2B2C37',
 			darkTaskBg: '#2B2C37',
 			darkScrollBg: '#2B2C37',
-			lightBodyBg: '#E4EBFA',
+			lightBodyBg: '#F4F7FD',
 			lightNavbarBg: 'white',
 			lightAsideBg: 'white',
 			lightTaskBg: 'white',
@@ -66,11 +66,14 @@ module.exports = {
 			// text
 
 			darkTextPrimary: 'white',
-			lightTextPrimary: 'black',
+			lightTextPrimary: '#000112',
+
+			// border
+			darkBorder: '#3E3F4E',
+			lightBorder: '#E4EBFA',
 
 			// shared
 
-			border: '#3E3F4E',
 			grey: '#828FA3',
 			purple: '#635FC7',
 			lightBlue: '#A8A4FF',
@@ -99,6 +102,9 @@ module.exports = {
 				},
 				'.addTaskXPadding': {
 					'padding-inline': 'clamp(1.5rem, 3vw, 2.5rem)'
+				},
+				'.double-border': {
+					'border-width': '0 1px 1px 0'
 				},
 				'.headingxl': {
 					'font-weight': 'bold',
