@@ -32,4 +32,6 @@
 		</button>
 	</div>
 {/if}
-<slot />
+<main class={`${$data.sidebarOpen && 'mainLeftPadding'} pl-6 mainTopPadding`}>
+	<slot />
+</main>

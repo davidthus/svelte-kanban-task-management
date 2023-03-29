@@ -87,6 +87,12 @@ module.exports = {
 	plugins: [
 		plugin(function ({ addUtilities }) {
 			addUtilities({
+				'.mainTopPadding': {
+					'padding-top': 'calc(10vh + 24px)'
+				},
+				'.mainLeftPadding': {
+					'padding-left': 'calc(20rem + 24px)'
+				},
 				'.lightNewColumn': {
 					background: 'linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%)'
 				},
