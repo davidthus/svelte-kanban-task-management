@@ -1,4 +1,5 @@
 <script>
+	import Modal from '$lib/modal.svelte';
 	import Navbar from '$lib/navbar.svelte';
 	import Sidebar from '$lib/sidebar.svelte';
 	import { onDestroy } from 'svelte';
@@ -6,6 +7,7 @@
 	import { ShowIcon } from '../assets';
 	import { themeTypes } from '../constants/themeTypes';
 	import { data, toggleSidebar } from '../stores/dataStore';
+	import { modalInfo } from '../stores/modalStore';
 
 	const dataUnsubscribe = data.subscribe((value) => {
 		console.log(value);
@@ -19,6 +21,9 @@
 </script>
 
 <div class="w-screen h-screen z-[-1] fixed inset-0 bg-lightBodyBg dark:bg-darkBodyBg" />
+{#if $modalInfo.isModalOpen}
+	<Modal />
+{/if}
 <Navbar />
 {#if $data.sidebarOpen}
 	<Sidebar />
