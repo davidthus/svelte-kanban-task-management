@@ -11,4 +11,9 @@
 	{#each board.columns as column, columnIndex}
 		<Column {column} {columnIndex} {boardIndex} />
 	{/each}
+	<button
+		class="min-w-[280px] headingxl lightNewColumn dark:darkNewColumn text-grey hover:text-purple"
+	>
+		+ New Column
+	</button>
 </main>

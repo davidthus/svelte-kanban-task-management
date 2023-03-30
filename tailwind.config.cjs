@@ -85,6 +85,7 @@ module.exports = {
 		extend: {}
 	},
 	plugins: [
+		require('tailwind-scrollbar')({ nocompatible: true }),
 		plugin(function ({ addUtilities }) {
 			addUtilities({
 				'.mainTopPadding': {
