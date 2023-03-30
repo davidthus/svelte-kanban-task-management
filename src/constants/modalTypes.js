@@ -1,0 +1,9 @@
+export const modalTypes = {
+	VIEWTASK: 1,
+	ADDTASK: 2,
+	EDITTASK: 3,
+	ADDBOARD: 4,
+	EDITBOARD: 5,
+	DELETEBOARD: 6,
+	DELETETASK: 7
+};
