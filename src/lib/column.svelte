@@ -7,7 +7,7 @@
 	export let boardIndex;
 </script>
 
-<section class="flex flex-col gap-8 w-[280px]">
+<section class="flex flex-col gap-6 w-[280px]">
 	<h2 class="text-grey headings gap-3 flex">
 		<Circle {columnIndex} />
 		{column.name.toUpperCase()} ({column.tasks.length})
