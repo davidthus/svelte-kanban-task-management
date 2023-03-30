@@ -113,37 +113,44 @@ module.exports = {
 					'border-width': '0 1px 1px 0'
 				},
 				'.headingxl': {
+					'font-family': '"Plus Jakarta Sans", sans-serif',
 					'font-weight': 'bold',
 					'font-size': '24px',
 					'line-height': '30px'
 				},
 				'.headingl': {
+					'font-family': '"Plus Jakarta Sans", sans-serif',
 					'font-weight': 'bold',
 					'font-size': '18px',
 					'line-height': '23px'
 				},
 				'.headingm': {
+					'font-family': '"Plus Jakarta Sans", sans-serif',
 					'font-weight': 'bold',
 					'font-size': '15px',
 					'line-height': '19px'
 				},
 				'.headings': {
+					'font-family': '"Plus Jakarta Sans", sans-serif',
 					'font-weight': 'bold',
 					'font-size': '12px',
 					'line-height': '15px',
 					'letter-spacing': '2.4px'
 				},
 				'.bodyl': {
+					'font-family': '"Plus Jakarta Sans", sans-serif',
 					'font-weight': 500,
 					'font-size': '13px',
 					'line-height': '23px'
 				},
 				'.bodym': {
+					'font-family': '"Plus Jakarta Sans", sans-serif',
 					'font-weight': 'bold',
 					'font-size': '12px',
 					'line-height': '15px'
 				},
 				'.buttonstext': {
+					'font-family': '"Plus Jakarta Sans", sans-serif',
 					'font-weight': 'bold',
 					'font-size': '13px',
 					'line-height': '23px'

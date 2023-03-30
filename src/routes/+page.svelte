@@ -3,8 +3,8 @@
 	import { boards } from '../stores/boardStore';
 	import { data } from '../stores/dataStore';
 
-	const board = $boards.find((board) => board.name === $data.activeBoard);
-	const boardIndex = $boards.indexOf((brd) => brd.name === board.name);
+	$: board = $boards.find((board) => board.name === $data.activeBoard);
+	$: boardIndex = $boards.indexOf((brd) => brd.name === board.name);
 </script>
 
 <main class="flex gap-8 w-full">
