@@ -12,16 +12,16 @@
 <aside
 	class="flex flex-col justify-between max-w-xs w-full fixed z-50 left-0 bottom-0 pt-4 pb-8 h-[90vh] bg-lightAsideBg dark:bg-darkAsideBg border-r border-lightBorder dark:border-darkBorder"
 >
-	<section class="flex flex-col gap-5 ">
+	<section class="flex flex-col">
 		<h3 class="headings text-grey pl-8">ALL BOARDS({$boards.length})</h3>
-		<menu class="flex flex-col">
+		<menu class="flex flex-col mt-5 mb-3.5">
 			{#if $boards.length > 0}
 				{#each $boards as board}
 					<BoardTab {board} />
 				{/each}
 			{/if}
 		</menu>
-		<button class="flex gap-4 pl-8 py-4 items-center hover:cursor-pointer text-purple headingm"
+		<button class="flex gap-4 pl-8 items-center hover:cursor-pointer text-purple headingm"
 			><BoardIcon buttonState={buttonStateTypes.HOVER} />+ Create New Board</button
 		>
 	</section>
