@@ -4,7 +4,7 @@
 	import { data } from '../stores/dataStore';
 
 	$: board = $boards.find((board) => board.name === $data.activeBoard);
-	$: boardIndex = $boards.indexOf((brd) => brd.name === board.name);
+	$: boardIndex = $boards.findIndex((brd) => brd.name === $data.activeBoard);
 </script>
 
 <main class="flex gap-8 w-full">
