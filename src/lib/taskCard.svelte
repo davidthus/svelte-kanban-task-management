@@ -1,4 +1,5 @@
 <script>
+	import { openModal } from '../stores/modalStore';
 	import { subtasksCompleted } from '../utils/subtasksCompleted';
 	export let task;
 </script>
@@ -6,10 +7,11 @@
 <article
 	class="w-full py-[23px] px-4 dark:bg-darkTaskBg bg-lightTaskBg rounded-lg lightTaskBoxShadow dark:darkTaskBoxShadow flex flex-col gap-2 cursor-pointer"
 >
-	<h3
-		class="headingm text-lightTextPrimary dark:text-darkTextPrimary transition hover:text-purple dark:hover:text-purple"
+	<button
+		on:click={() => openModal({})}
+		class="headingm text-lightTextPrimary dark:text-darkTextPrimary transition hover:text-purple dark:hover:text-purple text-left"
 	>
 		{task.title}
-	</h3>
+	</button>
 	<p class="bodym text-grey">{subtasksCompleted(task)}</p>
 </article>

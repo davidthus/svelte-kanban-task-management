@@ -11,7 +11,7 @@
 		$boards.find((board) => board.name === $data.activeBoard)?.columns.length > 0;
 	const addTaskButtonConfig = {
 		buttonType: BUTTONTYPES.ADDTASK,
-		disabled: columnPresentInActiveBoard
+		disabled: !columnPresentInActiveBoard
 	};
 
 	let isBoardOptionsShowing = false;
@@ -42,8 +42,7 @@
 			<h1 class="headingxl text-lightTextPrimary dark:text-darkTextPrimary">{$data.activeBoard}</h1>
 			<div class="flex justify-center items-center gap-6">
 				<Button config={addTaskButtonConfig}>+ Add New Task</Button>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div on:click={toggleBoardOptions} class="relative cursor-pointer">
+				<button on:click={toggleBoardOptions} class="relative cursor-pointer">
 					<VerticalDotsIcon />
 					{#if isBoardOptionsShowing}
 						<menu
@@ -55,7 +54,7 @@
 							<li class="bodyl text-red cursor-pointer">Delete Board</li>
 						</menu>
 					{/if}
-				</div>
+				</button>
 			</div>
 		</div>
 	</div>

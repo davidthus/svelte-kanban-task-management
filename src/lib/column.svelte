@@ -12,7 +12,7 @@
 		<Circle {columnIndex} />
 		{column.name.toUpperCase()} ({column.tasks.length})
 	</h2>
-	{#each column.tasks as task}
-		<TaskCard {task} />
+	{#each column.tasks as task, taskIndex}
+		<TaskCard {task} {taskIndex} {columnIndex} {boardIndex} />
 	{/each}
 </section>

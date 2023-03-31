@@ -2,8 +2,7 @@
 	import { BUTTONTYPES } from '../constants/buttonTypes';
 	export let config;
 
-	const baseButtonStyles =
-		'rounded-full border-0 cursor-pointer flex justify-center items-center py-2 px-12';
+	const baseButtonStyles = 'rounded-full border-0 flex justify-center items-center py-2 px-12';
 	const disabledStyles = 'opacity-25 cursor-default';
 	let specificButtonStyles;
 
@@ -39,6 +38,10 @@
 	}
 </script>
 
-<button class={`${baseButtonStyles} ${specificButtonStyles} ${config?.disabled && disabledStyles}`}>
+<button
+	class={`${baseButtonStyles} ${specificButtonStyles} ${
+		config?.disabled ? disabledStyles : 'cursor-pointer'
+	}`}
+>
 	<slot />
 </button>

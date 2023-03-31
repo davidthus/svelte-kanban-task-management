@@ -15,8 +15,10 @@
 	$: modalDetails = $modalInfo.details;
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div on:click={closeModal} class="fixed inset-0 w-screen h-screen flex items-center justify-center">
+<button
+	on:click={closeModal}
+	class="fixed inset-0 w-screen h-screen flex items-center justify-center"
+>
 	{#if modalType === modalTypes.VIEWTASK}
 		<ViewTask {modalDetails} />
 	{:else if modalType === modalTypes.ADDTASK}
@@ -32,4 +34,4 @@
 	{:else if modalType === modalTypes.DELETETASK}
 		<DeleteTask {modalDetails} />
 	{/if}
-</div>
+</button>
