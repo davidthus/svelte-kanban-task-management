@@ -9,8 +9,8 @@
 	import { data, toggleSidebar } from '../stores/dataStore';
 	import { modalInfo } from '../stores/modalStore';
 
+	$: console.log($modalInfo);
 	const dataUnsubscribe = data.subscribe((value) => {
-		console.log(value);
 		if (value.theme === themeTypes.LIGHTTHEME) {
 			document.documentElement.classList.remove('dark');
 		} else if (value.theme === themeTypes.DARKTHEME) {

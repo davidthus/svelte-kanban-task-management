@@ -1,13 +1,18 @@
 <script>
-	import { CheckIcon } from '../../assets';
-	import { boards, toggleSubtask } from '../../stores/boardStore';
+	import { ArrowDownIcon, CheckIcon } from '../../assets';
+	import { boards, changeTaskStatus, toggleSubtask } from '../../stores/boardStore';
+	import { changeModalDetails } from '../../stores/modalStore';
 	import { subtasksCompleted } from '../../utils/subtasksCompleted';
 	import Popout from '../popout.svelte';
 	export let modalDetails;
 
-	const { boardIndex, columnIndex, taskIndex } = modalDetails;
+	$: ({ boardIndex, columnIndex, taskIndex } = modalDetails);
 
+	$: boardColumns = $boards[boardIndex].columns;
 	$: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
+	$: console.log(task, modalDetails);
+
+	let isDropdownOpen = false;
 
 	function handleEdit() {}
 
@@ -63,4 +68,39 @@
 			</li>
 		{/each}
 	</ul>
+	<div class="flex flex-col gap-4 w-full">
+		<h3 class="bodym text-grey dark:text-darkTextPrimary text-left">Current Status</h3>
+		<button
+			on:click={() => {
+				isDropdownOpen = isDropdownOpen ? false : true;
+			}}
+			class="border relative rounded border-grey/25 px-4 py-2 flex items-center justify-between"
+		>
+			<p class="bodyl text-lightTextPrimary dark:text-darkTextPrimary">{task.status}</p>
+			<ArrowDownIcon />
+			{#if isDropdownOpen}
+				<menu
+					class="absolute inset-x-0 top-[51px] w-full rounded-lg bg-lightDropdownBg dark:bg-darkDropdownBg p-4 flex flex-col gap-2"
+				>
+					{#each boardColumns as column, newColumnIndex}
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<li
+							on:click={() => {
+								changeTaskStatus(task, boardIndex, newColumnIndex, columnIndex, taskIndex);
+								const newTaskIndex = boardColumns[newColumnIndex].tasks.length - 1;
+								changeModalDetails({
+									taskIndex: newTaskIndex,
+									columnIndex: newColumnIndex,
+									boardIndex
+								});
+							}}
+							class="bodyl text-grey text-left"
+						>
+							{column.name}
+						</li>
+					{/each}
+				</menu>
+			{/if}
+		</button>
+	</div>
 </div>
