@@ -17,10 +17,13 @@
 
 <button
 	on:click={closeModal}
-	class="fixed z-50 inset-0 w-screen h-screen flex items-center justify-center bg-black opacity-50 mix-blend-normal"
+	class="fixed z-50 inset-0 w-screen h-screen flex items-center justify-center bg-normalTheme/50 mix-blend-normal"
 >
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<article on:click|stopPropagation class="max-w-[480px] w-full rounded-md p-8 flex flex-col gap-6">
+	<article
+		on:click|stopPropagation
+		class="max-w-[480px] bg-lightTaskBg dark:bg-darkTaskBg w-full rounded-md p-8 flex flex-col gap-6"
+	>
 		{#if modalType === modalTypes.VIEWTASK}
 			<ViewTask {modalDetails} />
 		{:else if modalType === modalTypes.ADDTASK}

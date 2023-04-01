@@ -4,8 +4,8 @@
 	import { themeTypes } from '../constants/themeTypes';
 	import { boards } from '../stores/boardStore';
 	import { data } from '../stores/dataStore';
-	import { clickOutside } from '../utils/clickOutside';
 	import Button from './button.svelte';
+	import Popout from './popout.svelte';
 
 	const columnPresentInActiveBoard =
 		$boards.find((board) => board.name === $data.activeBoard)?.columns.length > 0;
@@ -14,11 +14,9 @@
 		disabled: !columnPresentInActiveBoard
 	};
 
-	let isBoardOptionsShowing = false;
+	function handleEdit() {}
 
-	function toggleBoardOptions() {
-		isBoardOptionsShowing = isBoardOptionsShowing ? false : true;
-	}
+	function handleDelete() {}
 </script>
 
 <header
@@ -42,19 +40,7 @@
 			<h1 class="headingxl text-lightTextPrimary dark:text-darkTextPrimary">{$data.activeBoard}</h1>
 			<div class="flex justify-center items-center gap-6">
 				<Button config={addTaskButtonConfig}>+ Add New Task</Button>
-				<button on:click={toggleBoardOptions} class="relative cursor-pointer">
-					<VerticalDotsIcon />
-					{#if isBoardOptionsShowing}
-						<menu
-							use:clickOutside
-							on:click_outside={toggleBoardOptions}
-							class="absolute bg-white right-0 rounded-lg w-max dark:bg-darkBodyBg flex flex-col p-4 gap-4"
-						>
-							<li class="bodyl text-grey cursor-pointer">Edit Board</li>
-							<li class="bodyl text-red cursor-pointer">Delete Board</li>
-						</menu>
-					{/if}
-				</button>
+				<Popout {handleEdit} {handleDelete} navbarOptions={true} />
 			</div>
 		</div>
 	</div>

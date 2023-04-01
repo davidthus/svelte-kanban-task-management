@@ -15,7 +15,6 @@
 			boardIndex
 		}
 	};
-	$: console.log(viewTaskModalPayload);
 </script>
 
 <article
