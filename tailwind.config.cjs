@@ -18,7 +18,7 @@ module.exports = {
 			lightScrollBg: 'white',
 
 			// sub task checkbox
-			darkSubtaskCheckboxBg: '#20212C',
+			darkSubtaskCheckboxBg: '#828FA3',
 			darkSubtaskCheckboxHover: '#635FC725',
 			lightSubtaskCheckboxBg: '#F4F7FD',
 			lightSubtaskCheckboxHover: '#635FC725',

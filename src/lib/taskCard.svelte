@@ -26,5 +26,5 @@
 	>
 		{task.title}
 	</button>
-	<p class="bodym text-grey">{subtasksCompleted(task)}</p>
+	<p class="bodym text-grey">{subtasksCompleted(task)} subtasks</p>
 </article>
