@@ -1,4 +1,5 @@
 <script>
+	import { focus } from 'focus-svelte';
 	import { ArrowDownIcon, CheckIcon } from '../../assets';
 	import { modalTypes } from '../../constants/modalTypes';
 	import { boards, changeTaskStatus, toggleSubtask } from '../../stores/boardStore';
@@ -82,7 +83,8 @@
 			on:click={() => {
 				isDropdownOpen = !isDropdownOpen;
 			}}
-			class="border relative rounded border-grey/25 px-4 py-2 flex items-center justify-between"
+			use:focus={isDropdownOpen}
+			class="border relative rounded border-grey/25 px-4 py-2 flex items-center justify-between focus:border-purple focus:border transition"
 		>
 			<p class="bodyl text-lightTextPrimary dark:text-darkTextPrimary">{task.status}</p>
 			<ArrowDownIcon />
