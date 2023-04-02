@@ -12,7 +12,6 @@
 
 	$: boardColumns = $boards[boardIndex].columns;
 	$: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
-	$: console.log(task, modalDetails);
 
 	let isDropdownOpen = false;
 

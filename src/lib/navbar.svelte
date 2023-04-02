@@ -1,22 +1,35 @@
 <script>
-	import { DarkLogoIcon, LightLogoIcon, MobileLogoIcon, VerticalDotsIcon } from '../assets';
+	import { DarkLogoIcon, LightLogoIcon, MobileLogoIcon } from '../assets';
 	import { BUTTONTYPES } from '../constants/buttonTypes';
+	import { modalTypes } from '../constants/modalTypes';
 	import { themeTypes } from '../constants/themeTypes';
 	import { boards } from '../stores/boardStore';
 	import { data } from '../stores/dataStore';
+	import { openModal } from '../stores/modalStore';
 	import Button from './button.svelte';
 	import Popout from './popout.svelte';
 
 	const columnPresentInActiveBoard =
 		$boards.find((board) => board.name === $data.activeBoard)?.columns.length > 0;
+	$: boardIndex = $boards.findIndex((board) => board.name === $data.activeBoard);
 	const addTaskButtonConfig = {
 		buttonType: BUTTONTYPES.ADDTASK,
 		disabled: !columnPresentInActiveBoard
 	};
 
-	function handleEdit() {}
+	function handleEdit() {
+		openModal({
+			modalType: modalTypes.EDITBOARD,
+			details: { boardIndex }
+		});
+	}
 
-	function handleDelete() {}
+	function handleDelete() {
+		openModal({
+			modalType: modalTypes.DELETEBOARD,
+			details: { boardIndex }
+		});
+	}
 </script>
 
 <header
