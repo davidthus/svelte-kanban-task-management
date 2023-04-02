@@ -80,7 +80,7 @@
 		<h3 class="bodym text-grey dark:text-darkTextPrimary text-left">Current Status</h3>
 		<button
 			on:click={() => {
-				isDropdownOpen = isDropdownOpen ? false : true;
+				isDropdownOpen = !isDropdownOpen;
 			}}
 			class="border relative rounded border-grey/25 px-4 py-2 flex items-center justify-between"
 		>

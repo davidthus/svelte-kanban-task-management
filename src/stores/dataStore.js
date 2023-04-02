@@ -25,7 +25,7 @@ data.subscribe((value) => {
 });
 
 export function toggleSidebar() {
-	data.update((prev) => ({ ...prev, sidebarOpen: prev.sidebarOpen ? false : true }));
+	data.update((prev) => ({ ...prev, sidebarOpen: !prev.sidebarOpen }));
 }
 
 export function toggleTheme() {

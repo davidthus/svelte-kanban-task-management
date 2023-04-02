@@ -2,7 +2,8 @@
 	import { BUTTONTYPES } from '../constants/buttonTypes';
 	export let config;
 
-	const baseButtonStyles = 'rounded-full border-0 flex justify-center items-center py-2 px-12';
+	const baseButtonStyles =
+		'rounded-full flex-1 border-0 flex justify-center items-center py-2 px-12';
 	const disabledStyles = 'opacity-25 cursor-default';
 	let specificButtonStyles;
 
@@ -17,10 +18,10 @@
 			break;
 		case BUTTONTYPES.SECONDARY:
 			specificButtonStyles =
-				'text-lightButtonSecondaryBg bg-lightButtonSecondaryBg buttonstext hover:bg-lightButtonSecondaryHover dark:text-darkButtonSecondaryBg dark:bg-darkButtonSecondaryBg dark:hover:bg-darkButtonSecondaryHover';
+				'text-purple bg-lightButtonSecondaryBg buttonstext hover:bg-lightButtonSecondaryHover dark:text-darkButtonSecondaryBg dark:bg-darkButtonSecondaryBg dark:hover:bg-darkButtonSecondaryHover';
 			break;
 		case BUTTONTYPES.DESTRUCTIVE:
-			specificButtonStyles = `text-lightButtonDeleteBg bg-lightButtonDeleteBg buttonstext hover:bg-lightButtonDeleteHover dark:text-darkButtonDeleteBg dark:bg-darkButtonDeleteBg dark:hover:bg-darkButtonDeleteHover ${
+			specificButtonStyles = `text-white bg-lightButtonDeleteBg buttonstext hover:bg-lightButtonDeleteHover dark:text-darkButtonDeleteBg dark:bg-darkButtonDeleteBg dark:hover:bg-darkButtonDeleteHover ${
 				// disable hover effects is config.disabled is true
 				config.disabled
 					? 'cursor-auto opacity-50'
@@ -39,6 +40,7 @@
 </script>
 
 <button
+	on:click
 	class={`${baseButtonStyles} ${specificButtonStyles} ${
 		config?.disabled ? disabledStyles : 'cursor-pointer'
 	}`}

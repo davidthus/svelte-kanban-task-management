@@ -150,7 +150,7 @@ export function toggleSubtask(
 							if (currentTaskIndex === taskIndex) {
 								task.subtasks = task.subtasks.map((subtask, currentSubtaskIndex) => {
 									if (currentSubtaskIndex === subtaskIndex) {
-										subtask.isCompleted = currentSubtaskState ? false : true;
+										subtask.isCompleted = !currentSubtaskState;
 									}
 									return subtask;
 								});

@@ -9,7 +9,7 @@
 	let isOptionsShowing = false;
 	function toggleOptions() {
 		console.log('clicked');
-		isOptionsShowing = isOptionsShowing ? false : true;
+		isOptionsShowing = !isOptionsShowing;
 	}
 	function closeOptions() {
 		isOptionsShowing = false;
@@ -30,10 +30,10 @@
 			} rounded-lg w-max dark:bg-darkBodyBg flex flex-col p-4 gap-4`}
 		>
 			<button class="bodyl text-grey cursor-pointer text-left" on:click={handleEdit}
-				>Edit Board</button
+				>Edit {navbarOptions ? 'Board' : 'Task'}</button
 			>
 			<button class="bodyl text-red cursor-pointer text-left" on:click={handleDelete}
-				>Delete Board</button
+				>Delete {navbarOptions ? 'Board' : 'Task'}</button
 			>
 		</div>
 	{/if}
