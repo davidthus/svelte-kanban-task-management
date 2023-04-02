@@ -1,7 +1,8 @@
 <script>
 	import { ArrowDownIcon, CheckIcon } from '../../assets';
+	import { modalTypes } from '../../constants/modalTypes';
 	import { boards, changeTaskStatus, toggleSubtask } from '../../stores/boardStore';
-	import { changeModalDetails } from '../../stores/modalStore';
+	import { changeModalDetails, openModal } from '../../stores/modalStore';
 	import { subtasksCompleted } from '../../utils/subtasksCompleted';
 	import Popout from '../popout.svelte';
 	export let modalDetails;
@@ -14,9 +15,16 @@
 
 	let isDropdownOpen = false;
 
-	function handleEdit() {}
+	function handleEdit() {
+		openModal({ modalType: modalTypes.EDITTASK, details: { boardIndex, columnIndex, taskIndex } });
+	}
 
-	function handleDelete() {}
+	function handleDelete() {
+		openModal({
+			modalType: modalTypes.DELETETASK,
+			details: { boardIndex, columnIndex, taskIndex }
+		});
+	}
 </script>
 
 <div class="flex justify-between w-full">
