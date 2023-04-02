@@ -16,13 +16,13 @@
 	let isDropdownOpen = false;
 
 	function handleEdit() {
-		openModal({ modalType: modalTypes.EDITTASK, details: { boardIndex, columnIndex, taskIndex } });
+		openModal({ modalType: modalTypes.EDITTASK, details: modalDetails });
 	}
 
 	function handleDelete() {
 		openModal({
 			modalType: modalTypes.DELETETASK,
-			details: { boardIndex, columnIndex, taskIndex }
+			details: modalDetails
 		});
 	}
 </script>
