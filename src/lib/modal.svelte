@@ -11,8 +11,7 @@
 		ViewTask
 	} from './modals';
 
-	$: modalType = $modalInfo.modalType;
-	$: modalDetails = $modalInfo.details;
+	$: ({ modalType, details: modalDetails } = $modalInfo);
 </script>
 
 <button

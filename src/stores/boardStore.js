@@ -115,9 +115,9 @@ export function changeTaskStatus(task, boardIndex, columnIndex, oldColumnIndex, 
 			if (currentBoardIndex === boardIndex) {
 				board.columns = board.columns.map((column, currentColumnIndex) => {
 					if (currentColumnIndex === oldColumnIndex && currentColumnIndex === columnIndex) {
-						column.tasks[taskIndex] = task;
+						column.tasks[taskIndex] = { ...task, status: column.name };
 					} else if (currentColumnIndex === columnIndex) {
-						column.tasks = [...column.tasks, task];
+						column.tasks = [...column.tasks, { ...task, status: column.name }];
 						taskStatusChanged = true;
 					}
 

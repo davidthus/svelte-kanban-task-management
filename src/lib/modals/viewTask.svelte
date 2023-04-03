@@ -10,8 +10,12 @@
 
 	$: ({ boardIndex, columnIndex, taskIndex } = modalDetails);
 
+	$: console.log(modalDetails);
 	$: boardColumns = $boards[boardIndex].columns;
 	$: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
+
+	$: console.log($boards[boardIndex].columns[columnIndex]);
+	$: console.log(task);
 
 	let isDropdownOpen = false;
 
@@ -28,7 +32,7 @@
 </script>
 
 <div class="flex justify-between w-full">
-	<h2 class="text-lightTextPrimary dark:text-darkTextPrimary headingl">
+	<h2 class="text-lightTextPrimary dark:text-darkTextPrimary headingl text-left">
 		{task.title}
 	</h2>
 	<Popout {handleEdit} {handleDelete} navbarOptions={false} />
@@ -95,6 +99,7 @@
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
 						<li
 							on:click={() => {
+								console.log(newColumnIndex, columnIndex);
 								changeTaskStatus(task, boardIndex, newColumnIndex, columnIndex, taskIndex);
 								const newTaskIndex = boardColumns[newColumnIndex].tasks.length - 1;
 								changeModalDetails({

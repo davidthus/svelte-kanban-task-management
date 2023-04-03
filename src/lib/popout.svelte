@@ -8,7 +8,6 @@
 
 	let isOptionsShowing = false;
 	function toggleOptions() {
-		console.log('clicked');
 		isOptionsShowing = !isOptionsShowing;
 	}
 	function closeOptions() {

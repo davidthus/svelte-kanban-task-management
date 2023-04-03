@@ -1,20 +1,27 @@
 <script>
 	import { BUTTONTYPES } from '../../constants/buttonTypes';
 	import { boards, deleteBoard } from '../../stores/boardStore';
+	import { data, toggleActiveBoard } from '../../stores/dataStore';
 	import { closeModal } from '../../stores/modalStore';
 	import Button from '../button.svelte';
 	export let modalDetails;
+
+	$: isMoreThanOneBoard = $boards.length > 1;
+	$: nextActiveBoard = !isMoreThanOneBoard
+		? null
+		: $boards.filter((board) => board.name !== $data.activeBoard)[0].name;
 	$: ({ boardIndex } = modalDetails);
+	$: boardName = $boards[boardIndex].name;
 
 	function handleDelete() {
 		deleteBoard(boardIndex);
+		toggleActiveBoard(nexActiveBoard);
 		closeModal();
 	}
 
 	function handleCancel() {
 		closeModal();
 	}
-	$: boardName = $boards[boardIndex].name;
 </script>
 
 <h2 class="text-red text-left headingl">Delete this board?</h2>

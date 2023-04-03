@@ -6,10 +6,13 @@
 	import '../app.css';
 	import { ShowIcon } from '../assets';
 	import { themeTypes } from '../constants/themeTypes';
+	import { boards } from '../stores/boardStore';
 	import { data, toggleSidebar } from '../stores/dataStore';
 	import { modalInfo } from '../stores/modalStore';
 
 	$: console.log($modalInfo);
+	$: console.log($boards);
+
 	const dataUnsubscribe = data.subscribe((value) => {
 		if (value.theme === themeTypes.LIGHTTHEME) {
 			document.documentElement.classList.remove('dark');
