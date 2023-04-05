@@ -10,10 +10,11 @@
 
 	$: ({ boardIndex, columnIndex, taskIndex } = modalDetails);
 
-	$: console.log(modalDetails);
+	$: console.log(boardIndex, columnIndex, taskIndex);
 	$: boardColumns = $boards[boardIndex].columns;
 	$: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
 
+	$: console.log(modalDetails);
 	$: console.log($boards[boardIndex].columns[columnIndex]);
 	$: console.log(task);
 
@@ -31,12 +32,15 @@
 	}
 </script>
 
+<!-- TOP OF VIEW TASK -->
 <div class="flex justify-between w-full">
 	<h2 class="text-lightTextPrimary dark:text-darkTextPrimary headingl text-left">
 		{task.title}
 	</h2>
 	<Popout {handleEdit} {handleDelete} navbarOptions={false} />
 </div>
+<!-- TOP OF VIEW TASK -->
+<!-- DESC -->
 <p class="bodyl text-grey text-left">
 	{#if task.description.length > 0}
 		{task.description}
@@ -44,6 +48,8 @@
 		{'No Description'}
 	{/if}
 </p>
+<!-- DESC -->
+<!-- SUBTASKS -->
 <div class="flex flex-col gap-4 w-full">
 	<h3 class="bodym text-grey dark:text-darkTextPrimary text-left">
 		Subtasks ({subtasksCompleted(task)})
@@ -80,6 +86,7 @@
 			</li>
 		{/each}
 	</ul>
+	<!-- SUBTASKS -->
 	<div class="flex flex-col gap-4 w-full">
 		<h3 class="bodym text-grey dark:text-darkTextPrimary text-left">Current Status</h3>
 		<button
@@ -99,7 +106,6 @@
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
 						<li
 							on:click={() => {
-								console.log(newColumnIndex, columnIndex);
 								changeTaskStatus(task, boardIndex, newColumnIndex, columnIndex, taskIndex);
 								const newTaskIndex = boardColumns[newColumnIndex].tasks.length - 1;
 								changeModalDetails({

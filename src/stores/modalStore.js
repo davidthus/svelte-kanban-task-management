@@ -32,6 +32,7 @@ export function closeModal() {
 }
 
 export function changeModalDetails(details) {
+	console.log(details);
 	modalInfo.update((prev) => ({
 		...prev,
 		details

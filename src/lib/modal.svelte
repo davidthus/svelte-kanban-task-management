@@ -12,6 +12,7 @@
 	} from './modals';
 
 	$: ({ modalType, details: modalDetails } = $modalInfo);
+	$: console.log(modalDetails);
 </script>
 
 <button

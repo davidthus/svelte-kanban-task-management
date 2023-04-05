@@ -22,7 +22,7 @@
 >
 	<button
 		on:click={openModal(viewTaskModalPayload)}
-		class="headingm text-lightTextPrimary dark:text-darkTextPrimary transition hover:text-purple dark:hover:text-purple text-left"
+		class="headingm text-lightTextPrimary dark:text-darkTextPrimary transition hover:text-purple dark:hover:text-purple text-left cursor-pointer"
 	>
 		{task.title}
 	</button>

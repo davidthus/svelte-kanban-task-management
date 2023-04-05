@@ -5,7 +5,6 @@ export const boards = writable([]);
 
 export const loadBoards = () => {
 	const loadedBoards = JSON.parse(localStorage.getItem('boards')) || data.boards;
-	console.log(loadedBoards);
 	boards.set(loadedBoards);
 };
 loadBoards();
