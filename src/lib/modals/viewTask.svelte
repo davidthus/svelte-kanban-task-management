@@ -10,12 +10,11 @@
 
 	$: ({ boardIndex, columnIndex, taskIndex } = modalDetails);
 
-	$: console.log(boardIndex, columnIndex, taskIndex);
+	$: console.log(boardIndex, 'board', columnIndex, 'column', taskIndex, 'task');
 	$: boardColumns = $boards[boardIndex].columns;
 	$: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
 
-	$: console.log(modalDetails);
-	$: console.log($boards[boardIndex].columns[columnIndex]);
+	$: console.log(columnIndex);
 	$: console.log(task);
 
 	let isDropdownOpen = false;
@@ -107,7 +106,11 @@
 						<li
 							on:click={() => {
 								changeTaskStatus(task, boardIndex, newColumnIndex, columnIndex, taskIndex);
-								const newTaskIndex = boardColumns[newColumnIndex].tasks.length - 1;
+								const newTaskIndex =
+									newColumnIndex === columnIndex
+										? taskIndex
+										: boardColumns[newColumnIndex].tasks.length;
+
 								changeModalDetails({
 									taskIndex: newTaskIndex,
 									columnIndex: newColumnIndex,

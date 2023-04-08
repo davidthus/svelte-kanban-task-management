@@ -3,6 +3,7 @@
 
 	let color;
 
+	// check the columnIndex to determine the color of the circle
 	$: if (columnIndex === 0 || columnIndex % 3 === 0) {
 		color = 'bg-[#49C4E5]';
 	} else if (columnIndex === 2 || columnIndex % 2 === 0) {

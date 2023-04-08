@@ -113,19 +113,24 @@ export function changeTaskStatus(task, boardIndex, columnIndex, oldColumnIndex, 
 
 			if (currentBoardIndex === boardIndex) {
 				board.columns = board.columns.map((column, currentColumnIndex) => {
-					if (currentColumnIndex === oldColumnIndex && currentColumnIndex === columnIndex) {
-						column.tasks[taskIndex] = { ...task, status: column.name };
-					} else if (currentColumnIndex === columnIndex) {
-						column.tasks = [...column.tasks, { ...task, status: column.name }];
+					// START OF CODE BLOCK
+					const taskStatusChangedToCurrentColumn =
+						columnIndex !== oldColumnIndex && columnIndex === currentColumnIndex;
+
+					if (taskStatusChangedToCurrentColumn) {
 						taskStatusChanged = true;
+						return { ...column, tasks: [...column.tasks, { ...task, status: column.name }] };
 					}
 
 					return column;
+					// END OF CODE BLOCK
 				});
 			}
 
 			if (taskStatusChanged) {
-				board.columns[oldColumnIndex].tasks.splice(taskIndex, 1);
+				board.columns[oldColumnIndex].tasks.filter(
+					(task, currentTaskIndex) => currentTaskIndex !== taskIndex
+				);
 			}
 
 			return board;

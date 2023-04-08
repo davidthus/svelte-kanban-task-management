@@ -12,13 +12,14 @@
 	const activeStyles = 'bg-purple dark:bg-purple text-white dark:text-white';
 
 	let buttonState = buttonStateTypes.DEFAULT;
-	$: buttonActive = $data.activeBoard === board.name;
+	$: isButtonActive = $data.activeBoard === board.name;
 
-	$: if (hover && !buttonActive) {
+	// determine the state of the boardTab to use the correct styling
+	$: if (hover && !isButtonActive) {
 		buttonState = buttonStateTypes.HOVER;
-	} else if (!hover && !buttonActive) {
+	} else if (!hover && !isButtonActive) {
 		buttonState = buttonStateTypes.DEFAULT;
-	} else if (buttonActive) {
+	} else if (isButtonActive) {
 		buttonState = buttonStateTypes.ACTIVE;
 	}
 </script>
