@@ -110,9 +110,9 @@ export function changeTaskStatus(task, boardIndex, columnIndex, oldColumnIndex, 
 	boards.update((prev) =>
 		prev.map((board, currentBoardIndex) => {
 			let taskStatusChanged = false;
-
+			let newColumns;
 			if (currentBoardIndex === boardIndex) {
-				board.columns = board.columns.map((column, currentColumnIndex) => {
+				newColumns = board.columns.map((column, currentColumnIndex) => {
 					// START OF CODE BLOCK
 					const taskStatusChangedToCurrentColumn =
 						columnIndex !== oldColumnIndex && columnIndex === currentColumnIndex;
@@ -128,9 +128,21 @@ export function changeTaskStatus(task, boardIndex, columnIndex, oldColumnIndex, 
 			}
 
 			if (taskStatusChanged) {
-				board.columns[oldColumnIndex].tasks.filter(
-					(task, currentTaskIndex) => currentTaskIndex !== taskIndex
-				);
+				return {
+					name: board.name,
+					columns: newColumns.map((newColumn, currentNewColumn) => {
+						// removes the old task from old column if tasks did indeed change
+						if (currentNewColumn === oldColumnIndex) {
+							return {
+								...newColumn,
+								tasks: newColumn.tasks.filter(
+									(task, currentTaskIndex) => currentTaskIndex !== taskIndex
+								)
+							};
+						}
+						return newColumn;
+					})
+				};
 			}
 
 			return board;

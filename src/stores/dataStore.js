@@ -3,7 +3,7 @@ import { themeTypes } from '../constants/themeTypes';
 
 const initialState = {
 	sidebarOpen: true,
-	theme: themeTypes.LIGHTTHEME
+	theme: themeTypes.DARKTHEME
 };
 
 export const data = writable(initialState);
