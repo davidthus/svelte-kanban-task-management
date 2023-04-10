@@ -12,7 +12,11 @@
 
 	$: console.log(boardIndex, 'board', columnIndex, 'column', taskIndex, 'task');
 	$: boardColumns = $boards[boardIndex].columns;
-	$: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
+	// $: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
+	$: task = $boards
+		.find((_, currentBoardIndex) => currentBoardIndex === boardIndex)
+		.columns.find((_, currentColumnIndex) => currentColumnIndex === columnIndex)
+		.tasks.find((_, currentTaskIndex) => currentTaskIndex === taskIndex);
 
 	$: console.log(columnIndex);
 	$: console.log(task);
