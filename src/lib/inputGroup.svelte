@@ -1,10 +1,12 @@
 <script>
 	export let config;
-	export let labelText;
 	export let placeholderText;
 	export let value;
+	export let errorMessage;
+	export let name;
+	export let handleChange;
 
-	$: ({ isError, errorMessage, isTextarea } = config);
+	$: ({ isError, isTextarea } = config);
 
 	const inputGroupStyles = 'headings text-grey flex flex-col gap-2 w-full';
 	const input =
@@ -15,24 +17,26 @@
 		'text-red bodyl absolute top-2 right-4 z-30 bg-lightTaskBg dark:bg-darkTaskBg';
 </script>
 
-{#if isTextarea}
-	<label class={inputGroupStyles}>
-		{labelText}
+<label class={inputGroupStyles}>
+	<slot />
+	{#if isTextarea}
 		<textarea
 			name="description"
+			on:change={handleChange}
 			bind:value
 			placeholder={placeholderText}
 			class={`${input} ${textarea}`}
 		/>
-	</label>
-{:else}
-	<label class={inputGroupStyles}>
-		{labelText}
+	{:else}
 		<div class="relative w-full">
-			{#if isError}
-				<span class={inputErrorMessage}>{errorMessage}</span>
-			{/if}
-			<input type="text" bind:value />
+			{#if isError} <small class={inputErrorMessage}>{errorMessage}</small> {/if}
+			<input
+				type="text"
+				on:change={handleChange}
+				{name}
+				bind:value
+				class={`${input} ${isError ? inputErrorStyles : ''}`}
+			/>
 		</div>
-	</label>
-{/if}
+	{/if}
+</label>
