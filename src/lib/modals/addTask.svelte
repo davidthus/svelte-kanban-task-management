@@ -1,10 +1,18 @@
 <script>
+	import { BUTTONTYPES } from '../../constants/buttonTypes';
+	import Button from '../button.svelte';
 	import InputGroup from '../inputGroup.svelte';
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
 		initialValues: {
 			title: '',
-			description: ''
+			description: '',
+			subtasks: [
+				{
+					title: '',
+					isCompleted: false
+				}
+			]
 		},
 		validate: (values) => {
 			let errs = {};
@@ -36,4 +44,5 @@
 	recharge the batteries a little."
 		value={$form.description}>Description</InputGroup
 	>
+	<Button type="submit" config={{ buttonType: BUTTONTYPES.PRIMARYS }}>Create Task</Button>
 </form>
