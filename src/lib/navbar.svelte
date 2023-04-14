@@ -52,7 +52,9 @@
 		<div class="flex justify-between items-center">
 			<h1 class="headingxl text-lightTextPrimary dark:text-darkTextPrimary">{$data.activeBoard}</h1>
 			<div class="flex justify-center items-center gap-6">
-				<Button config={addTaskButtonConfig}>+ Add New Task</Button>
+				<Button config={addTaskButtonConfig} on:click={openModal({ modalType: modalTypes.ADDTASK })}
+					>+ Add New Task</Button
+				>
 				<Popout {handleEdit} {handleDelete} navbarOptions={true} />
 			</div>
 		</div>

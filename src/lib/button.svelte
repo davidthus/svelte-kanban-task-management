@@ -1,6 +1,7 @@
 <script>
 	import { BUTTONTYPES } from '../constants/buttonTypes';
 	export let config;
+	export let type = 'button';
 
 	const baseButtonStyles =
 		'rounded-full flex-1 border-0 flex justify-center items-center py-2 px-12';
@@ -41,6 +42,7 @@
 
 <button
 	on:click
+	{type}
 	class={`${baseButtonStyles} ${specificButtonStyles} ${
 		config?.disabled ? disabledStyles : 'cursor-pointer'
 	}`}
