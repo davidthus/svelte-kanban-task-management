@@ -25,10 +25,10 @@
 	});
 
 	const add = () => {
-		$form.users = $form.users.concat({ name: '', email: '' });
+		$form.subtasks = $form.subtasks.concat({ name: '', email: '' });
 	};
 	const remove = (i) => () => {
-		$form.users = $form.users.filter((u, j) => j !== i);
+		$form.subtasks = $form.subtasks.filter((u, j) => j !== i);
 	};
 </script>
 
