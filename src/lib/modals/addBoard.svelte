@@ -1,4 +1,6 @@
 <script>
+	import InputGroup from '../inputGroup.svelte';
+
 	export let modalDetails;
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
@@ -32,18 +34,11 @@
 <h2 class="lightTextPrimary headingl">Add New Board</h2>
 <form on:submit={handleSubmit}>
 	<InputGroup
-		name="title"
-		config={{ isTextArea: false, isError: $errors.title }}
+		name="name"
+		config={{ isTextArea: false, isError: $errors.name }}
 		placeholderText="e.g. Take coffee break"
-		errorMessage={$errors.title}
+		errorMessage={$errors.name}
 		{handleChange}
-		value={$form.title}>Title</InputGroup
-	>
-	<InputGroup
-		config={{ isTextArea: true }}
-		{handleChange}
-		placeholderText="e.g. It’s always good to take a break. This 15 minute break will 
-	recharge the batteries a little."
-		value={$form.description}>Description</InputGroup
+		value={$form.name}>Name</InputGroup
 	>
 </form>
