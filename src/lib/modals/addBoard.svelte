@@ -24,8 +24,8 @@
 	});
 
 	const add = () => {
-		$form.columns = $form.columns.concat({ name: '', columns: [] });
-		$errors.columns = $errors.columns.concat({ name: '', columns: [] });
+		$form.columns = $form.columns.concat({ name: '', tasks: [] });
+		$errors.columns = $errors.columns.concat({ name: '', tasks: [] });
 	};
 	const remove = (i) => () => {
 		$form.columns = $form.subtasks.filter((u, j) => j !== i);
@@ -44,9 +44,11 @@
 		value={$form.name}>Board Name</InputGroup
 	>
 	<InputGroup
+		on:add={add}
 		name="columns"
 		config={{ isArray: true, isError: $errors.columns }}
 		errorMessage={$errors.columns}
+		errors={$errors.columns}
 		{handleChange}
 		values={$form.columns}>Board Columns</InputGroup
 	>

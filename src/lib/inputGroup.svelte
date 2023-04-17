@@ -5,9 +5,10 @@
 
 	export let config;
 	export let placeholderText;
-	export let placeholderTexts;
+	export let placeholderTexts = [];
 	export let value;
 	export let values = [];
+	export let errors = [];
 	export let errorMessage;
 	export let name;
 	export let handleChange;
@@ -44,8 +45,17 @@
 		<div class="relative flex w-full flex-col gap-3">
 			{#each values as value, index}
 				<div class="flex items-center gap-4">
-					{#if isError} <small class={arrayInputErrorMessage}>{errorMessage}</small> {/if}
-					<input class={`${input} ${isError ? inputErrorStyles : ''}`} />
+					{#if errors[index].name}
+						<small class={arrayInputErrorMessage}>{errors[index].name}</small>
+					{/if}
+					<input
+						name={`${name}[${index}].name`}
+						class={`${input} ${isError ? inputErrorStyles : ''}`}
+						placeholder={placeholderTexts[index] ?? ''}
+						on:change={handleChange}
+						on:blur={handleChange}
+						bind:value={values[index].name}
+					/>
 				</div>
 			{/each}
 			<div class="mt-1 w-full">
