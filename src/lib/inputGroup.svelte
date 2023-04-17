@@ -5,13 +5,14 @@
 
 	export let config;
 	export let placeholderText;
+	export let placeholderTexts;
 	export let value;
 	export let values = [];
 	export let errorMessage;
 	export let name;
 	export let handleChange;
 
-	$: ({ isError, isTextarea, isArray } = config);
+	$: ({ isError = false, isTextarea = false, isArray = false } = config);
 	const dispatch = createEventDispatcher();
 
 	const inputGroupStyles = 'headings text-grey flex flex-col gap-2 w-full';

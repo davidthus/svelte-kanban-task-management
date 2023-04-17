@@ -37,10 +37,17 @@
 <form on:submit={handleSubmit}>
 	<InputGroup
 		name="name"
-		config={{ isTextArea: false, isError: $errors.name }}
+		config={{ isError: $errors.name }}
 		placeholderText="e.g. Take coffee break"
 		errorMessage={$errors.name}
 		{handleChange}
-		value={$form.name}>Name</InputGroup
+		value={$form.name}>Board Name</InputGroup
+	>
+	<InputGroup
+		name="columns"
+		config={{ isArray: true, isError: $errors.columns }}
+		errorMessage={$errors.columns}
+		{handleChange}
+		values={$form.columns}>Board Columns</InputGroup
 	>
 </form>
