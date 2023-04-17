@@ -1,12 +1,18 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+	import { BUTTONTYPES } from '../constants/buttonTypes';
+	import Button from './button.svelte';
+
 	export let config;
 	export let placeholderText;
 	export let value;
+	export let values = [];
 	export let errorMessage;
 	export let name;
 	export let handleChange;
 
-	$: ({ isError, isTextarea } = config);
+	$: ({ isError, isTextarea, isArray } = config);
+	const dispatch = createEventDispatcher();
 
 	const inputGroupStyles = 'headings text-grey flex flex-col gap-2 w-full';
 	const input =
@@ -15,6 +21,12 @@
 	const inputErrorStyles = 'border-red focus:border-red';
 	const inputErrorMessage =
 		'text-red bodyl absolute top-2 right-4 z-30 bg-lightTaskBg dark:bg-darkTaskBg';
+	const arrayInputErrorMessage =
+		'text-red bodyl absolute top-2 right-[47px] z-30 bg-lightTaskBg dark:bg-darkTaskBg';
+
+	function removeValue() {
+		dispatch('remove');
+	}
 </script>
 
 <label class={inputGroupStyles}>
@@ -27,6 +39,18 @@
 			placeholder={placeholderText}
 			class={`${input} ${textarea}`}
 		/>
+	{:else if isArray}
+		<div class="relative flex w-full flex-col gap-3">
+			{#each values as value, index}
+				<div class="flex items-center gap-4">
+					{#if isError} <small class={arrayInputErrorMessage}>{errorMessage}</small> {/if}
+					<input class={`${input} ${isError ? inputErrorStyles : ''}`} />
+				</div>
+			{/each}
+			<div class="mt-1 w-full">
+				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={dispatch('add')} />
+			</div>
+		</div>
 	{:else}
 		<div class="relative w-full">
 			{#if isError} <small class={inputErrorMessage}>{errorMessage}</small> {/if}

@@ -25,9 +25,11 @@
 
 	const add = () => {
 		$form.columns = $form.columns.concat({ name: '', columns: [] });
+		$errors.columns = $errors.columns.concat({ name: '', columns: [] });
 	};
 	const remove = (i) => () => {
 		$form.columns = $form.subtasks.filter((u, j) => j !== i);
+		$errors.columns = $errors.subtasks.filter((u, j) => j !== i);
 	};
 </script>
 
