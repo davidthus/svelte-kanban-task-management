@@ -2,11 +2,11 @@
 	import { VerticalDotsIcon } from '../assets';
 	import { clickOutside } from '../utils/clickOutside';
 
-	export let navbarOptions;
+	export let navbarOptions = false;
 	export let handleEdit;
 	export let handleDelete;
 
-	let isOptionsShowing = false;
+	let isOptionsShowing = true;
 	function toggleOptions() {
 		isOptionsShowing = !isOptionsShowing;
 	}
@@ -24,14 +24,14 @@
 	<VerticalDotsIcon />
 	{#if isOptionsShowing}
 		<div
-			class={`absolute bg-white right-0 ${
+			class={`absolute right-0 bg-white ${
 				!navbarOptions ? 'translate-x-1/2' : ''
-			} rounded-lg w-max dark:bg-darkBodyBg flex flex-col p-4 gap-4`}
+			} flex w-max flex-col gap-4 rounded-lg p-4 dark:bg-darkBodyBg`}
 		>
-			<button class="bodyl text-grey cursor-pointer text-left" on:click={handleEdit}
+			<button class="cursor-pointer text-left text-grey bodyl" on:click={handleEdit}
 				>Edit {navbarOptions ? 'Board' : 'Task'}</button
 			>
-			<button class="bodyl text-red cursor-pointer text-left" on:click={handleDelete}
+			<button class="cursor-pointer text-left text-red bodyl" on:click={handleDelete}
 				>Delete {navbarOptions ? 'Board' : 'Task'}</button
 			>
 		</div>

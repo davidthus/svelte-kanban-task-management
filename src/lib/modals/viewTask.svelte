@@ -36,15 +36,15 @@
 </script>
 
 <!-- TOP OF VIEW TASK -->
-<div class="flex justify-between w-full">
-	<h2 class="text-lightTextPrimary dark:text-darkTextPrimary headingl text-left">
+<div class="flex w-full justify-between">
+	<h2 class="text-left text-lightTextPrimary headingl dark:text-darkTextPrimary">
 		{task.title}
 	</h2>
-	<Popout {handleEdit} {handleDelete} navbarOptions={false} />
+	<Popout {handleEdit} {handleDelete} />
 </div>
 <!-- TOP OF VIEW TASK -->
 <!-- DESC -->
-<p class="bodyl text-grey text-left">
+<p class="text-left text-grey bodyl">
 	{#if task.description.length > 0}
 		{task.description}
 	{:else}
@@ -53,11 +53,11 @@
 </p>
 <!-- DESC -->
 <!-- SUBTASKS -->
-<div class="flex flex-col gap-4 w-full">
-	<h3 class="bodym text-grey dark:text-darkTextPrimary text-left">
+<div class="flex w-full flex-col gap-4">
+	<h3 class="text-left text-grey bodym dark:text-darkTextPrimary">
 		Subtasks ({subtasksCompleted(task)})
 	</h3>
-	<ul class="flex flex-col gap-2 w-full">
+	<ul class="flex w-full flex-col gap-2">
 		{#each task.subtasks as subtask, subtaskIndex}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<li
@@ -68,11 +68,11 @@
 					columnIndex,
 					subtask.isCompleted
 				)}
-				class="flex pl-3 pr-4 py-[13px] gap-4 items-center bg-lightBodyBg dark:bg-darkBodyBg hover:bg-lightSubtaskCheckboxHover hover:dark:bg-darkSubtaskCheckboxHover rounded"
+				class="flex items-center gap-4 rounded bg-lightBodyBg py-[13px] pl-3 pr-4 hover:bg-lightSubtaskCheckboxHover dark:bg-darkBodyBg hover:dark:bg-darkSubtaskCheckboxHover"
 			>
 				<div
-					class={`bg-lightSubtaskCheckboxBg dark:bg-darkBodyBg flex items-center justify-center w-4 h-4 rounded-sm border border-grey/25 ${
-						subtask.isCompleted ? 'bg-purple dark:bg-purple border-purple' : ''
+					class={`flex h-4 w-4 items-center justify-center rounded-sm border border-grey/25 bg-lightSubtaskCheckboxBg dark:bg-darkBodyBg ${
+						subtask.isCompleted ? 'border-purple bg-purple dark:bg-purple' : ''
 					}`}
 				>
 					{#if subtask.isCompleted}
@@ -80,8 +80,8 @@
 					{/if}
 				</div>
 				<p
-					class={`flex bodym text-lightTextPrimary dark:text-darkTextPrimary ${
-						subtask.isCompleted ? 'line-through mix-blend-normal opacity-50' : ''
+					class={`flex text-lightTextPrimary bodym dark:text-darkTextPrimary ${
+						subtask.isCompleted ? 'line-through opacity-50 mix-blend-normal' : ''
 					}`}
 				>
 					{subtask.title}
@@ -90,20 +90,20 @@
 		{/each}
 	</ul>
 	<!-- SUBTASKS -->
-	<div class="flex flex-col gap-4 w-full">
-		<h3 class="bodym text-grey dark:text-darkTextPrimary text-left">Current Status</h3>
+	<div class="flex w-full flex-col gap-4">
+		<h3 class="text-left text-grey bodym dark:text-darkTextPrimary">Current Status</h3>
 		<button
 			on:click={() => {
 				isDropdownOpen = !isDropdownOpen;
 			}}
 			use:focus={isDropdownOpen}
-			class="border relative rounded border-grey/25 px-4 py-2 flex items-center justify-between focus:border-purple focus:border transition"
+			class="relative flex items-center justify-between rounded border border-grey/25 px-4 py-2 transition focus:border focus:border-purple"
 		>
-			<p class="bodyl text-lightTextPrimary dark:text-darkTextPrimary">{task.status}</p>
+			<p class="text-lightTextPrimary bodyl dark:text-darkTextPrimary">{task.status}</p>
 			<ArrowDownIcon />
 			{#if isDropdownOpen}
 				<menu
-					class="absolute inset-x-0 top-[51px] w-full rounded-lg bg-lightDropdownBg dark:bg-darkDropdownBg p-4 flex flex-col gap-2"
+					class="absolute inset-x-0 top-[51px] flex w-full flex-col gap-2 rounded-lg bg-lightDropdownBg p-4 dark:bg-darkDropdownBg"
 				>
 					{#each boardColumns as column, newColumnIndex}
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -121,7 +121,7 @@
 									boardIndex
 								});
 							}}
-							class="bodyl text-grey text-left"
+							class="text-left text-grey bodyl"
 						>
 							{column.name}
 						</li>
