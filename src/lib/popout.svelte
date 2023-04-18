@@ -6,7 +6,7 @@
 	export let handleEdit;
 	export let handleDelete;
 
-	let isOptionsShowing = true;
+	let isOptionsShowing = false;
 	function toggleOptions() {
 		isOptionsShowing = !isOptionsShowing;
 	}
