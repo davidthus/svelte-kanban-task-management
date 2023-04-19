@@ -13,8 +13,8 @@
 		},
 		validate: (values) => {
 			let errs = {};
-			if (values.title === '') {
-				errs['title'] = "Can't be empty";
+			if (values.name === '') {
+				errs['name'] = "Can't be empty";
 			}
 			return errs;
 		},
