@@ -32,8 +32,8 @@
 	};
 </script>
 
-<h2 class="lightTextPrimary headingl">Add New Board</h2>
-<form on:submit={handleSubmit}>
+<h2 class="text-lightTextPrimary headingl dark:text-darkTextPrimary">Add New Board</h2>
+<form class="flex w-full flex-col gap-6" on:submit={handleSubmit}>
 	<InputGroup
 		name="name"
 		config={{ isError: $errors.name }}

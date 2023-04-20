@@ -16,7 +16,7 @@
 	$: ({ isError = false, isTextarea = false, isArray = false } = config);
 	const dispatch = createEventDispatcher();
 
-	const inputGroupStyles = 'headings text-grey flex flex-col gap-2 w-full';
+	const inputGroupStyles = 'text-left text-grey bodym dark:text-white flex flex-col gap-2 w-full';
 	const input =
 		'border border-grey/[.25] w-full rounded text-lightTextPrimary dark:text-darkTextPrimary focus:border-purple py-2 px-4 bg-transparent placeholder:text-lightTextPrimary dark:placeholder:text-darkTextPrimary bodyl relative ';
 	const textarea = 'w-full min-h-[112px] resize-none';
@@ -32,9 +32,8 @@
 </script>
 
 <label class={inputGroupStyles}>
-	<p class="text-left text-grey bodym dark:text-white">
-		<slot />
-	</p>
+	<slot />
+
 	{#if isTextarea}
 		<textarea
 			name="description"
