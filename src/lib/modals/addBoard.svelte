@@ -1,7 +1,6 @@
 <script>
+	import { createForm } from 'svelte-forms-lib';
 	import InputGroup from '../inputGroup.svelte';
-
-	export let modalDetails;
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
 		initialValues: {

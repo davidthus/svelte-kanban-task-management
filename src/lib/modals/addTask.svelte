@@ -1,4 +1,5 @@
 <script>
+	import { createForm } from 'svelte-forms-lib';
 	import { BUTTONTYPES } from '../../constants/buttonTypes';
 	import Button from '../button.svelte';
 	import InputGroup from '../inputGroup.svelte';
@@ -27,8 +28,8 @@
 	});
 </script>
 
-<h2 class="lightTextPrimary headingl">Add New Task</h2>
-<form on:submit={handleSubmit}>
+<h2 class="text-lightTextPrimary headingl dark:text-darkTextPrimary">Add New Task</h2>
+<form on:submit={handleSubmit} class="flex w-full flex-col gap-6">
 	<InputGroup
 		name="title"
 		config={{ isTextArea: false, isError: $errors.title }}

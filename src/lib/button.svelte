@@ -11,11 +11,11 @@
 	switch (config.buttonType) {
 		case BUTTONTYPES.PRIMARYL:
 			specificButtonStyles =
-				'text-lightButtonPrimaryBg bg-lightButtonPrimaryBg py-[0.9rem] px-12 headingm hover:bg-lightButtonPrimaryHover dark:text-white dark:bg-darkButtonPrimaryBg dark:hover:bg-darkButtonPrimaryHover';
+				'text-white bg-lightButtonPrimaryBg py-[0.9rem] px-12 headingm hover:bg-lightButtonPrimaryHover';
 			break;
 		case BUTTONTYPES.PRIMARYS:
 			specificButtonStyles =
-				'text-lightButtonPrimaryBg bg-lightButtonPrimaryBg buttonstext hover:bg-lightButtonPrimaryHover dark:text-darkButtonPrimaryBg dark:bg-darkButtonPrimaryBg dark:hover:bg-darkButtonPrimaryHover';
+				'text-white bg-lightButtonPrimaryBg buttonstext hover:bg-lightButtonPrimaryHover';
 			break;
 		case BUTTONTYPES.SECONDARY:
 			specificButtonStyles =

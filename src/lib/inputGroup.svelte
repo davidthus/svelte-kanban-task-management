@@ -3,15 +3,15 @@
 	import { BUTTONTYPES } from '../constants/buttonTypes';
 	import Button from './button.svelte';
 
-	export let config;
-	export let placeholderText;
+	export let config = {};
+	export let placeholderText = '';
 	export let placeholderTexts = [];
-	export let value;
+	export let value = '';
 	export let values = [];
 	export let errors = [];
-	export let errorMessage;
-	export let name;
-	export let handleChange;
+	export let errorMessage = '';
+	export let name = '';
+	export let handleChange = '';
 
 	$: ({ isError = false, isTextarea = false, isArray = false } = config);
 	const dispatch = createEventDispatcher();
@@ -32,7 +32,9 @@
 </script>
 
 <label class={inputGroupStyles}>
-	<slot />
+	<p class="text-left text-grey bodym dark:text-white">
+		<slot />
+	</p>
 	{#if isTextarea}
 		<textarea
 			name="description"
