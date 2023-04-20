@@ -28,16 +28,16 @@
 			<ViewTask {modalDetails} />
 		{:else if modalType === modalTypes.ADDTASK}
 			<AddTask />
+		{:else if modalType === modalTypes.ADDBOARD}
+			<AddBoard />
 		{:else if modalType === modalTypes.EDITTASK}
 			<EditTask {modalDetails} />
 		{:else if modalType === modalTypes.EDITBOARD}
 			<EditBoard {modalDetails} />
-		{:else if modalType === modalTypes.ADDBOARD}
-			<AddBoard {modalDetails} />
-		{:else if modalType === modalTypes.DELETEBOARD}
-			<DeleteBoard {modalDetails} />
 		{:else if modalType === modalTypes.DELETETASK}
 			<DeleteTask {modalDetails} />
+		{:else if modalType === modalTypes.DELETEBOARD}
+			<DeleteBoard {modalDetails} />
 		{/if}
 	</article>
 </button>
