@@ -51,16 +51,18 @@
 					{/if}
 					<input
 						name={`${name}[${index}].name`}
-						class={`${input} ${isError ? inputErrorStyles : ''}`}
+						class={`${input} ${errors[index].name ? inputErrorStyles : ''}`}
 						placeholder={placeholderTexts[index] ?? ''}
 						on:change={handleChange}
 						on:blur={handleChange}
-						bind:value={values[index].name}
+						bind:value={value.name}
 					/>
 				</div>
 			{/each}
 			<div class="mt-1 w-full">
-				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={dispatch('add')}>+ Add New Column</Button>
+				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={dispatch('add')}
+					>+ Add New Column</Button
+				>
 			</div>
 		</div>
 	{:else}
