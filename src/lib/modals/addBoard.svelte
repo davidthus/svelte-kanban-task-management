@@ -40,7 +40,7 @@
 		placeholderText="e.g. Take coffee break"
 		errorMessage={$errors.name}
 		{handleChange}
-		value={$form.name}>Board Name</InputGroup
+		value={$form.name}>Name</InputGroup
 	>
 	<InputGroup
 		on:add={add}
@@ -49,6 +49,6 @@
 		errorMessage={$errors.columns}
 		errors={$errors.columns}
 		{handleChange}
-		values={$form.columns}>Board Columns</InputGroup
+		values={$form.columns}>Columns</InputGroup
 	>
 </form>
