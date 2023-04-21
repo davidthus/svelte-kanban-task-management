@@ -33,10 +33,10 @@
 </script>
 
 <header
-	class="w-screen flex items-center fixed h-[10vh] z-10 top-0 left-0 right-0 bg-lightNavbarBg dark:bg-darkNavbarBg"
+	class="fixed top-0 left-0 right-0 z-10 flex h-[10vh] w-screen items-center bg-lightNavbarBg dark:bg-darkNavbarBg"
 >
 	<aside
-		class={`flex pt-8 max-w-xs w-full pl-8 border-r border-lightBorder dark:border-darkBorder ${
+		class={`flex w-full max-w-xs border-r border-lightBorder pt-8 pl-8 dark:border-darkBorder ${
 			!$data.sidebarOpen && 'double-border'
 		} h-full`}
 	>
@@ -47,12 +47,14 @@
 		{/if}
 	</aside>
 	<div
-		class="flex-1 w-full h-full border-b border-lightBorder dark:border-darkBorder pl-6 pr-8 pt-5 pb-7"
+		class="h-full w-full flex-1 border-b border-lightBorder pl-6 pr-8 pt-5 pb-7 dark:border-darkBorder"
 	>
-		<div class="flex justify-between items-center">
-			<h1 class="headingxl text-lightTextPrimary dark:text-darkTextPrimary">{$data.activeBoard}</h1>
-			<div class="flex justify-center items-center gap-6">
-				<Button config={addTaskButtonConfig} on:click={openModal({ modalType: modalTypes.ADDTASK })}
+		<div class="flex items-center justify-between">
+			<h1 class="text-lightTextPrimary headingxl dark:text-darkTextPrimary">{$data.activeBoard}</h1>
+			<div class="flex items-center justify-center gap-6">
+				<Button
+					config={addTaskButtonConfig}
+					on:click={openModal({ modalType: modalTypes.ADDTASK, details: {} })}
 					>+ Add New Task</Button
 				>
 				<Popout {handleEdit} {handleDelete} navbarOptions={true} />

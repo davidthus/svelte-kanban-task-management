@@ -18,7 +18,7 @@
 
 	const inputGroupStyles = 'text-left text-grey bodym dark:text-white flex flex-col gap-2 w-full';
 	const input =
-		'border border-grey/[.25] w-full rounded text-lightTextPrimary dark:text-darkTextPrimary focus:border-purple py-2 px-4 bg-transparent placeholder:text-lightTextPrimary dark:placeholder:text-darkTextPrimary bodyl relative ';
+		'border border-grey/[.25] w-full rounded text-lightTextPrimary dark:text-darkTextPrimary focus:border-purple py-2 px-4 bg-transparent placeholder:text-grey dark:placeholder:text-darkTextPrimary bodyl relative outline-0';
 	const textarea = 'w-full min-h-[112px] resize-none';
 	const inputErrorStyles = 'border-red focus:border-red';
 	const inputErrorMessage =
