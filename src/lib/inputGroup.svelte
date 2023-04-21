@@ -18,7 +18,7 @@
 
 	const inputGroupStyles = 'text-left text-grey bodym dark:text-white flex flex-col gap-2 w-full';
 	const input =
-		'border border-grey/[.25] w-full rounded text-lightTextPrimary dark:text-darkTextPrimary focus:border-purple py-2 px-4 bg-transparent placeholder:text-grey dark:placeholder:text-darkTextPrimary bodyl relative outline-0';
+		'border border-grey/[.25] w-full rounded text-lightTextPrimary dark:text-darkTextPrimary focus:border-purple py-2 px-4 bg-lightTaskBg dark:bg-darkTaskBg placeholder:text-grey dark:placeholder:text-darkTextPrimary bodyl relative outline-0';
 	const textarea = 'w-full min-h-[112px] resize-none';
 	const inputErrorStyles = 'border-red focus:border-red';
 	const inputErrorMessage =
@@ -60,7 +60,7 @@
 				</div>
 			{/each}
 			<div class="mt-1 w-full">
-				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={dispatch('add')} />
+				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={dispatch('add')}>+ Add New Column</Button>
 			</div>
 		</div>
 	{:else}

@@ -19,7 +19,7 @@
 			break;
 		case BUTTONTYPES.SECONDARY:
 			specificButtonStyles =
-				'text-purple bg-lightButtonSecondaryBg buttonstext hover:bg-lightButtonSecondaryHover dark:text-darkButtonSecondaryBg dark:bg-darkButtonSecondaryBg dark:hover:bg-darkButtonSecondaryHover';
+				'text-purple bg-lightButtonSecondaryBg w-full buttonstext hover:bg-lightButtonSecondaryHover dark:bg-darkButtonSecondaryBg dark:hover:bg-darkButtonSecondaryBg';
 			break;
 		case BUTTONTYPES.DESTRUCTIVE:
 			specificButtonStyles = `text-white bg-lightButtonDeleteBg buttonstext hover:bg-lightButtonDeleteHover dark:text-darkButtonDeleteBg dark:bg-darkButtonDeleteBg dark:hover:bg-darkButtonDeleteHover ${
