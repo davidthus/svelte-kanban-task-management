@@ -18,13 +18,13 @@
 </script>
 
 <article
-	class="w-full py-[23px] px-4 dark:bg-darkTaskBg bg-lightTaskBg rounded-lg lightTaskBoxShadow dark:darkTaskBoxShadow flex flex-col gap-2 cursor-pointer"
+	class="flex w-full cursor-pointer flex-col gap-2 rounded-lg bg-lightTaskBg py-[23px] px-4 lightTaskBoxShadow dark:bg-darkTaskBg dark:darkTaskBoxShadow"
 >
 	<button
-		on:click={openModal(viewTaskModalPayload)}
-		class="headingm text-lightTextPrimary dark:text-darkTextPrimary transition hover:text-purple dark:hover:text-purple text-left cursor-pointer"
+		on:click={() => openModal(viewTaskModalPayload)}
+		class="cursor-pointer text-left text-lightTextPrimary transition headingm hover:text-purple dark:text-darkTextPrimary dark:hover:text-purple"
 	>
 		{task.title}
 	</button>
-	<p class="bodym text-grey">{subtasksCompleted(task)} subtasks</p>
+	<p class="text-grey bodym">{subtasksCompleted(task)} subtasks</p>
 </article>
