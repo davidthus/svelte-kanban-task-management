@@ -60,7 +60,7 @@
 				</div>
 			{/each}
 			<div class="mt-1 w-full">
-				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={dispatch('add')}
+				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={() => dispatch('add')}
 					>+ Add New {#if isBoard}Column{:else}Subtask{/if}</Button
 				>
 			</div>

@@ -1,5 +1,7 @@
 <script>
 	import { createForm } from 'svelte-forms-lib';
+	import { BUTTONTYPES } from '../../constants/buttonTypes';
+	import Button from '../button.svelte';
 	import InputGroup from '../inputGroup.svelte';
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
@@ -21,6 +23,8 @@
 			alert(JSON.stringify(values));
 		}
 	});
+
+	$: console.log($form);
 
 	const add = () => {
 		$form.columns = $form.columns.concat({ name: '', tasks: [] });
@@ -51,4 +55,5 @@
 		{handleChange}
 		values={$form.columns}>Columns</InputGroup
 	>
+	<Button config={{ buttonType: BUTTONTYPES.PRIMARYS }} type="submit">Create New Board</Button>
 </form>
