@@ -1,10 +1,14 @@
 <script>
-	import { boards } from '../../stores/boardStore';
+	import { ArrowDownIcon } from '../../assets';
+	import { boards, changeTaskStatus } from '../../stores/boardStore';
+	import { changeModalDetails } from '../../stores/modalStore';
 	import InputGroup from '../inputGroup.svelte';
 	export let modalDetails;
 
 	$: ({ boardIndex, columnIndex, taskIndex } = modalDetails);
 	$: task = $boards[boardIndex].columns[columnIndex].tasks[taskIndex];
+	$: boardColumns = $boards[boardIndex].columns;
+	let isDropdownOpen = false;
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
 		initialValues: {
