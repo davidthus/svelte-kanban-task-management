@@ -45,7 +45,7 @@
 	<InputGroup
 		on:add={add}
 		name="columns"
-		config={{ isArray: true, isError: $errors.columns }}
+		config={{ isArray: true, isError: $errors.columns, isBoard: true }}
 		errorMessage={$errors.columns}
 		errors={$errors.columns}
 		{handleChange}

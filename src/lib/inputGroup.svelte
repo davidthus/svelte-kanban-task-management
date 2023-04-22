@@ -13,7 +13,7 @@
 	export let name = '';
 	export let handleChange = '';
 
-	$: ({ isError = false, isTextarea = false, isArray = false } = config);
+	$: ({ isError = false, isTextarea = false, isArray = false, isBoard = false } = config);
 	const dispatch = createEventDispatcher();
 
 	const inputGroupStyles = 'text-left text-grey bodym dark:text-white flex flex-col gap-2 w-full';
@@ -61,7 +61,7 @@
 			{/each}
 			<div class="mt-1 w-full">
 				<Button config={{ buttonType: BUTTONTYPES.SECONDARY }} on:click={dispatch('add')}
-					>+ Add New Column</Button
+					>+ Add New {#if isBoard}Column{:else}Subtask{/if}</Button
 				>
 			</div>
 		</div>

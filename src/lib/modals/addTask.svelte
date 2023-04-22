@@ -45,5 +45,6 @@
 	recharge the batteries a little."
 		value={$form.description}>Description</InputGroup
 	>
+	<InputGroup config={{ isArray: true }} />
 	<Button type="submit" config={{ buttonType: BUTTONTYPES.PRIMARYS }}>Create Task</Button>
 </form>
