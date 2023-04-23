@@ -59,9 +59,13 @@
 		value={$form.description}>Description</InputGroup
 	>
 	<InputGroup
+		on:add={add}
+		{handleChange}
 		config={{ isArray: true, isError: $errors.subtasks }}
 		errorMessage={$errors.subtasks}
 		errors={$errors.subtasks}
+		values={$form.subtasks}
+		name="subtasks"
 	/>
 	<Button type="submit" config={{ buttonType: BUTTONTYPES.PRIMARYS }}>Create Task</Button>
 </form>
