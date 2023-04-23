@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { CrossIcon } from '../assets';
 	import { BUTTONTYPES } from '../constants/buttonTypes';
 	import Button from './button.svelte';
 
@@ -25,10 +26,6 @@
 		'text-red bodyl absolute top-2 right-4 z-30 bg-lightTaskBg dark:bg-darkTaskBg';
 	const arrayInputErrorMessage =
 		'text-red bodyl absolute top-2 right-[47px] z-30 bg-lightTaskBg dark:bg-darkTaskBg';
-
-	function removeValue() {
-		dispatch('remove');
-	}
 </script>
 
 <label class={inputGroupStyles}>
@@ -57,6 +54,9 @@
 						on:blur={handleChange}
 						bind:value={value.name}
 					/>
+					<button on:click={() => dispatch('remove')} class="bg-transparent border-0 outline-0"
+						><CrossIcon /></button
+					>
 				</div>
 			{/each}
 			<div class="mt-1 w-full">
