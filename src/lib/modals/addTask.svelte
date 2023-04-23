@@ -12,6 +12,10 @@
 				{
 					title: '',
 					isCompleted: false
+				},
+				{
+					title: '',
+					isCompleted: false
 				}
 			]
 		},
@@ -45,6 +49,6 @@
 	recharge the batteries a little."
 		value={$form.description}>Description</InputGroup
 	>
-	<InputGroup config={{ isArray: true }} />
+	<InputGroup config={{ isArray: true, isError: $errors.columns }} />
 	<Button type="submit" config={{ buttonType: BUTTONTYPES.PRIMARYS }}>Create Task</Button>
 </form>
