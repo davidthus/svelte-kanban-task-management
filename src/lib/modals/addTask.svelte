@@ -65,7 +65,7 @@
 		errorMessage={$errors.subtasks}
 		errors={$errors.subtasks}
 		values={$form.subtasks}
-		name="subtasks"
-	/>
+		name="subtasks">Subtasks</InputGroup
+	>
 	<Button type="submit" config={{ buttonType: BUTTONTYPES.PRIMARYS }}>Create Task</Button>
 </form>

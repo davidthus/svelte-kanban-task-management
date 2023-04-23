@@ -90,6 +90,7 @@
 		{/each}
 	</ul>
 	<!-- SUBTASKS -->
+	<!-- CURRENT STATUS -->
 	<div class="flex w-full flex-col gap-4">
 		<h3 class="text-left text-grey bodym dark:text-darkTextPrimary">Current Status</h3>
 		<button
@@ -130,4 +131,5 @@
 			{/if}
 		</button>
 	</div>
+	<!-- CURRENT STATUS -->
 </div>
