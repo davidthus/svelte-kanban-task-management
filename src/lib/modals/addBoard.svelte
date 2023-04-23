@@ -31,8 +31,8 @@
 		$errors.columns = $errors.columns.concat({ name: '', tasks: [] });
 	};
 	const remove = (i) => () => {
-		$form.columns = $form.subtasks.filter((u, j) => j !== i);
-		$errors.columns = $errors.subtasks.filter((u, j) => j !== i);
+		$form.columns = $form.columns.filter((u, j) => j !== i);
+		$errors.columns = $errors.columns.filter((u, j) => j !== i);
 	};
 </script>
 

@@ -30,6 +30,15 @@
 			alert(JSON.stringify(values));
 		}
 	});
+
+	const add = () => {
+		$form.subtasks = $form.subtasks.concat({ name: '', tasks: [] });
+		$errors.subtasks = $errors.subtasks.concat({ name: '', tasks: [] });
+	};
+	const remove = (i) => () => {
+		$form.subtasks = $form.subtasks.filter((u, j) => j !== i);
+		$errors.subtasks = $errors.subtasks.filter((u, j) => j !== i);
+	};
 </script>
 
 <h2 class="text-lightTextPrimary headingl dark:text-darkTextPrimary">Add New Task</h2>
@@ -49,6 +58,10 @@
 	recharge the batteries a little."
 		value={$form.description}>Description</InputGroup
 	>
-	<InputGroup config={{ isArray: true, isError: $errors.columns }} />
+	<InputGroup
+		config={{ isArray: true, isError: $errors.subtasks }}
+		errorMessage={$errors.subtasks}
+		errors={$errors.subtasks}
+	/>
 	<Button type="submit" config={{ buttonType: BUTTONTYPES.PRIMARYS }}>Create Task</Button>
 </form>
