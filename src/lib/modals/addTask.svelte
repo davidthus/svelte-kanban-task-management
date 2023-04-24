@@ -24,6 +24,11 @@
 			if (values.title === '') {
 				errs['title'] = "Can't be empty";
 			}
+			values.subtasks.forEach((subtask, index) => {
+				if (subtask.title === '') {
+					errs.subtask[index]['title'] = "Can't be empty";
+				}
+			});
 			return errs;
 		},
 		onSubmit: (values) => {
