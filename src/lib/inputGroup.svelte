@@ -54,8 +54,12 @@
 						on:blur={handleChange}
 						bind:value={value.name}
 					/>
-					<button on:click={() => dispatch('remove')} class="bg-transparent border-0 outline-0"
-						><CrossIcon /></button
+					<button
+						on:click={() => {
+							dispatch('remove', { index });
+							console.log('clickeddf');
+						}}
+						class="bg-transparent border-0 outline-0"><CrossIcon /></button
 					>
 				</div>
 			{/each}

@@ -26,6 +26,7 @@
 			}
 			values.subtasks.forEach((subtask, index) => {
 				if (subtask.title === '') {
+					console.log(errs, subtask, index);
 					errs.subtask[index]['title'] = "Can't be empty";
 				}
 			});
@@ -40,9 +41,10 @@
 		$form.subtasks = $form.subtasks.concat({ name: '', tasks: [] });
 		$errors.subtasks = $errors.subtasks.concat({ name: '', tasks: [] });
 	};
-	const remove = (i) => () => {
-		$form.subtasks = $form.subtasks.filter((u, j) => j !== i);
-		$errors.subtasks = $errors.subtasks.filter((u, j) => j !== i);
+	const remove = (event) => () => {
+		alert(event.detail);
+		$form.subtasks = $form.subtasks.filter((u, j) => j !== event.detail.index);
+		$errors.subtasks = $errors.subtasks.filter((u, j) => j !== event.detail.index);
 	};
 </script>
 
@@ -65,6 +67,7 @@
 	>
 	<InputGroup
 		on:add={add}
+		on:remove={remove}
 		{handleChange}
 		config={{ isArray: true, isError: $errors.subtasks }}
 		errorMessage={$errors.subtasks}
