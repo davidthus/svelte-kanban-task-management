@@ -14,7 +14,8 @@
 		initialValues: {
 			title: task.title,
 			description: task.description,
-			subtasks: task.subtasks
+			subtasks: task.subtasks,
+			status: task.status
 		},
 		validate: (values) => {
 			let errs = {};
@@ -52,6 +53,16 @@
 		placeholderText="e.g. It’s always good to take a break. This 15 minute break will 
 	recharge the batteries a little."
 		value={$form.description}>Description</InputGroup
+	>
+	<InputGroup
+		on:add={add}
+		on:remove={remove}
+		{handleChange}
+		config={{ isArray: true, isError: $errors.subtasks }}
+		errorMessage={$errors.subtasks}
+		errors={$errors.subtasks}
+		values={$form.subtasks}
+		name="subtasks">Subtasks</InputGroup
 	>
 	<div class="flex w-full flex-col gap-4">
 		<h3 class="text-left text-grey bodym dark:text-darkTextPrimary">Current Status</h3>

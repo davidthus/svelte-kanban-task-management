@@ -30,9 +30,9 @@
 		$form.columns = $form.columns.concat({ name: '', tasks: [] });
 		$errors.columns = $errors.columns.concat({ name: '', tasks: [] });
 	};
-	const remove = (i) => () => {
-		$form.columns = $form.columns.filter((u, j) => j !== i);
-		$errors.columns = $errors.columns.filter((u, j) => j !== i);
+	const remove = (event) => () => {
+		$form.columns = $form.columns.filter((u, j) => j !== event.detail.index);
+		$errors.columns = $errors.columns.filter((u, j) => j !== event.detail.index);
 	};
 </script>
 
@@ -48,6 +48,7 @@
 	>
 	<InputGroup
 		on:add={add}
+		on:remove={remove}
 		name="columns"
 		config={{ isArray: true, isError: $errors.columns, isBoard: true }}
 		errorMessage={$errors.columns}

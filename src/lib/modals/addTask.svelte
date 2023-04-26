@@ -20,16 +20,16 @@
 			]
 		},
 		validate: (values) => {
-			let errs = {};
+			let errs = { subtasks: [] };
 			if (values.title === '') {
 				errs['title'] = "Can't be empty";
 			}
-			values.subtasks.forEach((subtask, index) => {
-				if (subtask.title === '') {
-					console.log(errs, subtask, index);
-					errs.subtask[index]['title'] = "Can't be empty";
-				}
-			});
+			// values.subtasks.forEach((subtask, index) => {
+			// 	if (subtask.title === '') {
+			// 		console.log(errs, subtask, index);
+			// 		errs.subtasks[index].title = "Can't be empty";
+			// 	}
+			// });
 			return errs;
 		},
 		onSubmit: (values) => {
@@ -42,7 +42,7 @@
 		$errors.subtasks = $errors.subtasks.concat({ name: '', tasks: [] });
 	};
 	const remove = (event) => () => {
-		alert(event.detail);
+		console.log(event);
 		$form.subtasks = $form.subtasks.filter((u, j) => j !== event.detail.index);
 		$errors.subtasks = $errors.subtasks.filter((u, j) => j !== event.detail.index);
 	};
