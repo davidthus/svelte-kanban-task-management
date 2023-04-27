@@ -1,5 +1,7 @@
 <script>
+	import { BUTTONTYPES } from '../../constants/buttonTypes';
 	import { boards } from '../../stores/boardStore';
+	import Button from '../button.svelte';
 	import InputGroup from '../inputGroup.svelte';
 	export let modalDetails;
 
@@ -32,5 +34,25 @@
 	};
 </script>
 
-<h2 class="lightTextPrimary headingl">Add New Task</h2>
-<form />
+<h2 class="text-lightTextPrimary headingl dark:text-darkTextPrimary">Edit Board</h2>
+<form class="flex w-full flex-col gap-6" on:submit={handleSubmit}>
+	<InputGroup
+		name="name"
+		config={{ isError: $errors.name }}
+		placeholderText="e.g. Take coffee break"
+		errorMessage={$errors.name}
+		{handleChange}
+		value={$form.name}>Name</InputGroup
+	>
+	<InputGroup
+		on:add={add}
+		on:remove={remove}
+		name="columns"
+		config={{ isArray: true, isError: $errors.columns, isBoard: true }}
+		errorMessage={$errors.columns}
+		errors={$errors.columns}
+		{handleChange}
+		values={$form.columns}>Columns</InputGroup
+	>
+	<Button config={{ buttonType: BUTTONTYPES.PRIMARYS }} type="submit">Save Changes</Button>
+</form>
