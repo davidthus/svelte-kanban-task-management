@@ -42,7 +42,7 @@
 		placeholderText="e.g. Take coffee break"
 		errorMessage={$errors.name}
 		{handleChange}
-		value={$form.name}>Name</InputGroup
+		value={$form.name}>Board Name</InputGroup
 	>
 	<InputGroup
 		on:add={add}
@@ -52,7 +52,7 @@
 		errorMessage={$errors.columns}
 		errors={$errors.columns}
 		{handleChange}
-		values={$form.columns}>Columns</InputGroup
+		values={$form.columns}>Board Columns</InputGroup
 	>
 	<Button config={{ buttonType: BUTTONTYPES.PRIMARYS }} type="submit">Save Changes</Button>
 </form>
