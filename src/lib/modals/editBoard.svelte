@@ -6,13 +6,12 @@
 	export let modalDetails;
 
 	$: ({ boardIndex } = modalDetails);
-	$: board = $boards[boardIndex];
-	$: boardColumns = $boards[boardIndex].columns;
+	$: ({ name, columns } = $boards[boardIndex]);
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
 		initialValues: {
-			name: board.name,
-			columns: board.columns
+			name,
+			columns
 		},
 		validate: (values) => {
 			let errs = {};
