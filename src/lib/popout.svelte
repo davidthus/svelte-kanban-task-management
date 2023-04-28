@@ -8,7 +8,7 @@
 
 	let isOptionsShowing = false;
 	function toggleOptions() {
-		console.log("clicked")
+		console.log('clicked');
 		isOptionsShowing = !isOptionsShowing;
 	}
 	function closeOptions() {
@@ -29,11 +29,12 @@
 				!navbarOptions ? 'translate-x-1/2' : ''
 			} flex w-max flex-col gap-4 rounded-lg p-4 dark:bg-darkBodyBg`}
 		>
-			<button class="cursor-pointer text-left text-grey bodyl" on:click={handleEdit}
+			<button class="cursor-pointer text-left text-grey bodyl" on:click|stopPropagation={handleEdit}
 				>Edit {navbarOptions ? 'Board' : 'Task'}</button
 			>
-			<button class="cursor-pointer text-left text-red bodyl" on:click={handleDelete}
-				>Delete {navbarOptions ? 'Board' : 'Task'}</button
+			<button
+				class="cursor-pointer text-left text-red bodyl"
+				on:click|stopPropagation={handleDelete}>Delete {navbarOptions ? 'Board' : 'Task'}</button
 			>
 		</div>
 	{/if}
