@@ -14,7 +14,7 @@
 <aside
 	class="fixed left-0 bottom-0 z-30 flex h-[90vh] w-full max-w-xs flex-col justify-between border-r border-lightBorder bg-lightAsideBg pt-4 pb-8 dark:border-darkBorder dark:bg-darkAsideBg"
 >
-	<!-- BOARD TAB BUTTONS -->
+	<!-- BOARD TAB BUTTONS LIST -->
 	<section class="flex flex-col">
 		<h3 class="pl-8 text-grey headings">ALL BOARDS({$boards.length})</h3>
 		<menu class="mt-5 mb-3.5 flex flex-col">
@@ -30,7 +30,7 @@
 			><BoardIcon buttonState={buttonStateTypes.HOVER} />+ Create New Board</button
 		>
 	</section>
-	<!-- BOARD TAB BUTTONS -->
+	<!-- BOARD TAB BUTTONS LIST -->
 	<!-- BOTTOM SIDEBAR SECTION -->
 	<section class="flex w-full flex-col items-center gap-2">
 		<ThemeToggler {toggleTheme} />
