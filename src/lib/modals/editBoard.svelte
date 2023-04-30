@@ -27,10 +27,10 @@
 	});
 
 	const add = () => {
-		$form.columns = $form.columns.concat({ title: '', isCompleted: '' });
+		$form.columns = $form.columns.concat({ name: '', tasks: [] });
 	};
-	const remove = (i) => () => {
-		$form.columns = $form.columns.filter((u, j) => j !== i);
+	const remove = (event) => () => {
+		$form.columns = $form.columns.filter((u, j) => j !== event.details.index);
 	};
 </script>
 
