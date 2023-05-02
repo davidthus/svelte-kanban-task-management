@@ -14,6 +14,7 @@
 	export let name = '';
 	export let handleChange = '';
 
+	$: console.log(name, values);
 	$: ({ isError = false, isTextarea = false, isArray = false, isBoard = false } = config);
 	const dispatch = createEventDispatcher();
 

@@ -26,10 +26,12 @@
 		}
 	});
 
+	$: console.log($form);
 	const add = () => {
 		$form.columns = $form.columns.concat({ name: '', tasks: [] });
 	};
 	const remove = (event) => () => {
+		console.log(event);
 		$form.columns = $form.columns.filter((u, j) => j !== event.details.index);
 	};
 </script>
