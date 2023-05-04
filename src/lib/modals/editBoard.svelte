@@ -8,6 +8,7 @@
 
 	$: ({ boardIndex } = modalDetails);
 	$: ({ name, columns } = $boards[boardIndex]);
+	$: console.log(name, columns);
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
 		initialValues: {
@@ -52,11 +53,11 @@
 		on:add={add}
 		on:remove={remove}
 		name="columns"
+		values={$form.columns}
 		config={{ isArray: true, isError: $errors.columns, isBoard: true }}
 		errorMessage={$errors.columns}
 		errors={$errors.columns}
-		{handleChange}
-		values={$form.columns}>Board Columns</InputGroup
+		{handleChange}>Board Columns</InputGroup
 	>
 	<Button config={{ buttonType: BUTTONTYPES.PRIMARYS }} type="submit">Save Changes</Button>
 </form>
