@@ -29,6 +29,7 @@
 
 	$: console.log($form);
 	const add = () => {
+		console.log("added")
 		$form.columns = $form.columns.concat({ name: '', tasks: [] });
 		$errors.columns = $errors.columns.concat({ name: '', tasks: [] });
 	};

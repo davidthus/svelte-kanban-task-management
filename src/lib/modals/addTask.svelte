@@ -24,12 +24,12 @@
 			if (values.title === '') {
 				errs['title'] = "Can't be empty";
 			}
-			// values.subtasks.forEach((subtask, index) => {
-			// 	if (subtask.title === '') {
-			// 		console.log(errs, subtask, index);
-			// 		errs.subtasks[index].title = "Can't be empty";
-			// 	}
-			// });
+			values.subtasks.forEach((subtask, index) => {
+				if (subtask.title === '') {
+					console.log(errs, subtask, index);
+					errs.subtasks[index].title = "Can't be empty";
+				}
+			});
 			return errs;
 		},
 		onSubmit: (values) => {
