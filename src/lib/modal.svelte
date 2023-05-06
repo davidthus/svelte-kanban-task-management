@@ -27,7 +27,7 @@
 		{#if modalType === modalTypes.VIEWTASK}
 			<ViewTask {modalDetails} />
 		{:else if modalType === modalTypes.ADDTASK}
-			<AddTask />
+			<AddTask {modalDetails} />
 		{:else if modalType === modalTypes.ADDBOARD}
 			<AddBoard />
 		{:else if modalType === modalTypes.EDITTASK}

@@ -54,7 +54,7 @@
 			<div class="flex items-center justify-center gap-6">
 				<Button
 					config={addTaskButtonConfig}
-					on:click={() => openModal({ modalType: modalTypes.ADDTASK, details: {} })}
+					on:click={() => openModal({ modalType: modalTypes.ADDTASK, details: { boardIndex } })}
 					>+ Add New Task</Button
 				>
 				<Popout {handleEdit} {handleDelete} navbarOptions={true} />

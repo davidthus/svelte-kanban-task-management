@@ -1,8 +1,16 @@
 <script>
 	import { createForm } from 'svelte-forms-lib';
 	import { BUTTONTYPES } from '../../constants/buttonTypes';
+	import { addTask } from '../../stores/boardStore';
 	import Button from '../button.svelte';
 	import InputGroup from '../inputGroup.svelte';
+	export let modalDetails;
+
+	$: ({ boardIndex } = modalDetails);
+
+	$: boardColumns = $boards[boardIndex].columns;
+
+	let taskStatus = boardColumns[0].name;
 
 	const { form, handleChange, errors, handleSubmit } = createForm({
 		initialValues: {
@@ -34,6 +42,8 @@
 		},
 		onSubmit: (values) => {
 			alert(JSON.stringify(values));
+			const columnIndex = boardColumns.findIndex((column) => column.name === taskStatus);
+			addTask({ values, status: taskStatus }, boardIndex, columnIndex);
 		}
 	});
 
@@ -49,7 +59,7 @@
 </script>
 
 <h2 class="text-lightTextPrimary headingl dark:text-darkTextPrimary">Add New Task</h2>
-<form on:submit={handleSubmit} class="flex w-full flex-col gap-6">
+<form on:submit={handleSubmit} class="flex w-full flex-col gap-6" +>
 	<InputGroup
 		name="title"
 		config={{ isTextArea: false, isError: $errors.title }}
@@ -75,5 +85,37 @@
 		values={$form.subtasks}
 		name="subtasks">Subtasks</InputGroup
 	>
+	<!-- CURRENT STATUS -->
+	<div class="flex w-full flex-col gap-4">
+		<h3 class="text-left text-grey bodym dark:text-darkTextPrimary">Current Status</h3>
+		<button
+			on:click={() => {
+				isDropdownOpen = !isDropdownOpen;
+			}}
+			use:focus={isDropdownOpen}
+			class="relative flex items-center justify-between rounded border border-grey/25 px-4 py-2 transition focus:border focus:border-purple"
+		>
+			<p class="text-lightTextPrimary bodyl dark:text-darkTextPrimary">{task.status}</p>
+			<ArrowDownIcon />
+			{#if isDropdownOpen}
+				<menu
+					class="absolute inset-x-0 top-[51px] flex w-full flex-col gap-2 rounded-lg bg-lightDropdownBg p-4 dark:bg-darkDropdownBg"
+				>
+					{#each boardColumns as column, newColumnIndex}
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<li
+							on:click={() => {
+								taskStatus = column.name;
+							}}
+							class="text-left text-grey bodyl"
+						>
+							{column.name}
+						</li>
+					{/each}
+				</menu>
+			{/if}
+		</button>
+	</div>
+	<!-- CURRENT STATUS -->
 	<Button type="submit" config={{ buttonType: BUTTONTYPES.PRIMARYS }}>Create Task</Button>
 </form>
