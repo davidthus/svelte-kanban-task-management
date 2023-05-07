@@ -1,7 +1,8 @@
 <script>
 	import { createForm } from 'svelte-forms-lib';
+	import { ArrowDownIcon } from '../../assets';
 	import { BUTTONTYPES } from '../../constants/buttonTypes';
-	import { addTask } from '../../stores/boardStore';
+	import { addTask, boards } from '../../stores/boardStore';
 	import Button from '../button.svelte';
 	import InputGroup from '../inputGroup.svelte';
 	export let modalDetails;
@@ -11,7 +12,7 @@
 	$: boardColumns = $boards[boardIndex].columns;
 
 	let taskStatus = boardColumns[0].name;
-
+	let isDropdownOpen = false;
 	const { form, handleChange, errors, handleSubmit } = createForm({
 		initialValues: {
 			title: '',
@@ -95,7 +96,7 @@
 			use:focus={isDropdownOpen}
 			class="relative flex items-center justify-between rounded border border-grey/25 px-4 py-2 transition focus:border focus:border-purple"
 		>
-			<p class="text-lightTextPrimary bodyl dark:text-darkTextPrimary">{task.status}</p>
+			<p class="text-lightTextPrimary bodyl dark:text-darkTextPrimary">{taskStatus}</p>
 			<ArrowDownIcon />
 			{#if isDropdownOpen}
 				<menu
