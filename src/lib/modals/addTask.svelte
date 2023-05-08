@@ -102,7 +102,7 @@
 				<menu
 					class="absolute inset-x-0 top-[51px] flex w-full flex-col gap-2 rounded-lg bg-lightDropdownBg p-4 dark:bg-darkDropdownBg"
 				>
-					{#each boardColumns as column, newColumnIndex}
+					{#each boardColumns as column}
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
 						<li
 							on:click={() => {
