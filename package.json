@@ -23,6 +23,7 @@
 		"prettier-plugin-tailwindcss": "^0.2.7",
 		"svelte": "^3.54.0",
 		"tailwind-scrollbar": "^3.0.0",
+		"typescript": "^5.0.4",
 		"vite": "^4.0.0"
 	},
 	"type": "module",
